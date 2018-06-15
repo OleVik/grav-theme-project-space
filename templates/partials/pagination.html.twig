@@ -1,0 +1,38 @@
+{% set url = path %}
+{% set current = currentPage %}
+{% set total = pageCount %}
+
+{% spaceless %}
+{% if total > 1 %}
+    {% set nearbyPagesLimit = 4 %}
+    <ul class="pagination">
+        {% if current != 1 %}
+        <li>
+            <a href="{{ url }}/page:1/limit:{{ limit }}">{{ 'THEME_MASONRY.BLOG.PAGINATION.FIRST'|t }}</a>
+        </li>
+        {% endif %}
+        {% for i in 1..total %}
+            {% if 0 == (current - nearbyPagesLimit) - loop.index %}
+            <li class="disabled">
+                <span>&hellip;</span>
+            </li>
+            {% elseif 0 == (current + nearbyPagesLimit) - loop.index %}
+            <li class="disabled">
+                <span>&hellip;</span>
+            </li>
+            {% elseif 0 < (current - nearbyPagesLimit) - loop.index %}
+            {% elseif 0 > (current + nearbyPagesLimit) - loop.index %}
+            {% else %}
+                <li {% if current == loop.index  %} class="active"{% endif %}>
+                    <a href="{{ url }}/page:{{ loop.index }}/limit:{{ limit }}">{{ loop.index }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+        {% if current != total %}
+        <li>
+            <a href="{{ url }}/page:{{ total }}/limit:{{ limit }}">{{ 'THEME_MASONRY.BLOG.PAGINATION.LAST'|t }}</a>
+        </li>
+        {% endif %}
+    </ul>
+{% endif %}
+{% endspaceless %}

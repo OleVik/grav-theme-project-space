@@ -1,0 +1,68 @@
+title: Project Space, Post Options
+'@extends':
+  type: default
+  context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        content:
+          type: tab
+          fields:
+            styleoptions:
+              type: section
+              title: Style Options
+              underline: true
+            header.image:
+              type: filepicker
+              folder: '@self'
+              preview_images: true
+              label: Image for thumbnail and header
+              help: Sets the image to use as thumbnail and header
+            header.color:
+              type: select
+              label: Background color
+              help: Sets the background color for the project
+              default: white
+              highlight: 0
+              options:
+                white: White
+                red: Red
+                orange: Orange
+                yellow: Yellow
+                green: Green
+                teal: Teal
+                blue: Blue
+                dark-blue: Dark Blue
+                purple: Purple
+                pink: Pink
+                brown: Brown
+                gray: Gray
+        options:
+          type: tab
+          fields:
+            taxonomies:
+              type: section
+              title: PLUGIN_ADMIN.TAXONOMIES
+              underline: true
+              fields:
+                header.taxonomy:
+                  unset@: true
+                header.taxonomy.category:
+                  type: select
+                  label: Category
+                  help: Sets the state of the project
+                  highlight: 0
+                  data-options@: '\Grav\Theme\ProjectSpace::categories'
+                header.taxonomy.tag:
+                  type: selectize
+                  allowEmptyOption: true
+                  label: Tags
+                  help: Applies tags to the project
+                  selectize:
+                    data-options@: '\Grav\Theme\ProjectSpace::tags'
+                  validate:
+                    type: commalist

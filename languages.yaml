@@ -1,0 +1,101 @@
+en:
+  THEME_MASONRY:
+    HOME: Home
+    MENU:
+      TITLE: Menu
+    BLOG:
+      CONTINUE_READING: Read More
+      POST:
+        MORE:
+          AUTHOR: More posts by this author
+          SPEC_AUTHOR: More posts by
+        SHARE: Share this post
+      PAGINATION:
+        OLDER: Older posts
+        NEWER: Newer posts
+        FIRST: First
+        LAST: Last
+        PAGE:
+          PAGE: Page
+          OF: of
+      SUBSCRIBE: Subscribe
+    TOOLS:
+      TITLE: Tools
+      SUBMIT: Apply
+      DISPLAY:
+        MENU: Display
+        BLOCKS: Blocks
+        LIST: List
+        CATEGORY: Category
+        COLOR: Color
+      SORT:
+        MENU: Sort
+        TITLE: Title
+        DATE: Date
+        FOLDER: Folder
+        ASC: Ascending
+        DESC: Descending
+      FILTER:
+        MENU: Filter
+        BY: by
+        CATEGORY: Category
+        COLOR: Color
+        DATE: Date
+        TAG: Tag
+      DATE:
+        MENU: Date range
+    EMPTY:
+      TITLE: No projects found...
+      CONTENT: Try changing the settings in the tools-menu, or visit another page
+    DISQUS:
+      NOSCRIPT: Please enable JavaScript to view the comments powered by Disqus.
+    ERROR:
+      404: 404, Page Not Found
+
+
+de:
+  THEME_MASONRY:
+    HOME: Startseite
+    MENU_TITLE: Menü
+    BLOG:
+      CONTINUE_READING: Weiterlesen
+      POST:
+        MORE:
+          AUTHOR: Mehr Beiträge
+          SPEC_AUTHOR: Mehr Beiträge von
+        SHARE: Beitrag teilen
+      PAGINATION:
+        OLDER: Ältere Beiträge
+        NEWER: Neuere Beiträge
+        PAGE:
+          PAGE: Seite
+          OF: von
+      SUBSCRIBE: Abonnieren
+    DISQUS:
+      NOSCRIPT: Bitte aktivieren Sie JavaScript um Disquis-Kommentare anschauen zu können.
+    ERROR:
+      404: Diese Seite existiert nicht (Fehler 404)
+      
+
+fr:
+  THEME_MASONRY:
+    HOME: Accueil
+    MENU_TITLE: Menu
+    BLOG:
+      CONTINUE_READING: Lire la suite
+      POST:
+        MORE:
+          AUTHOR: Plus de posts
+          SPEC_AUTHOR: Plus de posts de
+        SHARE: Partager ce post
+      PAGINATION:
+        OLDER: Posts plus anciens
+        NEWER: Posts plus récents
+        PAGE:
+          PAGE: Page
+          OF: de
+      SUBSCRIBE: S'abonner
+    DISQUS:
+      NOSCRIPT: Veuillez activer JavaScript pour afficher les commentaires Disquis.
+    ERROR:
+      404: 404, Page introuvable

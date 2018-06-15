@@ -1,0 +1,21 @@
+name: Project Space
+version: 1.0.0
+description: Visualize projects in an organized manner, as notes on a board.
+icon: sticky-note
+author:
+  name: Ole Vik
+  email: git@olevik.net
+homepage: https://github.com/OleVik/grav-theme-project-space
+demo: http://demo.yoursite.com
+keywords: grav, theme, project, projects, note, notes, visualize
+bugs: https://github.com/OleVik/grav-theme-project-space/issues
+readme: https://github.com/OleVik/grav-theme-project-space/blob/develop/README.md
+license: MIT
+
+dependencies:
+- { name: grav, version: '~1.4' }
+- { name: quark, version: '~1.0' }
+- { name: masonry, version: '~1.5' }
+- { name: taxonomylist, version: '~1.3' }
+- { name: auto-date, version: '~1.0' }
+- { name: markdown-tasklists, version: '~1.0' }
