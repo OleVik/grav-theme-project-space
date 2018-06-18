@@ -25,7 +25,7 @@ feed:
 ---
 ```
 
-Using any FrontMatter you prefer, of course. Each child-page, ie. folder below this page, is treated as a note when you visit the page. For example, a typical note may be in the folder /user/pages/projects/et-genus-fumant-et-omnes, and look like this:
+Using any FrontMatter you prefer, of course. Each child-page, ie. folder below this page, is treated as a note when you visit the page. For example, a typical note may be in the folder /user/pages/projects/et-genus-fumant-et-omnes/post.md, and look like this:
 
 ```
 ---
@@ -42,7 +42,7 @@ taxonomy:
 - [ ] Open a pull request
 ```
 
-The headers `color` and `taxonomy` are completely optional, and only the former affects the styling of the note. `taxonomy.category` should be a string, not a list. `taxonomy.tag` should, however, be a list of tags. `color` may be one of:
+Note that the theme expects notes to be in Markdown-files named `post.md`, not `default.md`, as seen [here](https://github.com/OleVik/grav-skeleton-project-space/tree/master/pages/projects). The headers `color` and `taxonomy` are completely optional, and only the former affects the styling of the note. `taxonomy.category` should be a string, not a list. `taxonomy.tag` should, however, be a list of tags. `color` may be one of:
 
 - `white`: White
 - `red`: Red
