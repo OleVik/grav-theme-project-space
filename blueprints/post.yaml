@@ -1,4 +1,4 @@
-title: Project Space, Post Options
+title: Theme options
 '@extends':
   type: default
   context: blueprints://pages
@@ -12,9 +12,15 @@ form:
         content:
           type: tab
           fields:
+            header.subtitle:
+              type: text
+              label: Subtitle
+        options:
+          type: tab
+          fields:
             styleoptions:
               type: section
-              title: Style Options
+              title: Style
               underline: true
             header.image:
               type: filepicker
@@ -22,6 +28,8 @@ form:
               preview_images: true
               label: Image for thumbnail and header
               help: Sets the image to use as thumbnail and header
+              accept:
+                - 'image/*'
             header.color:
               type: select
               label: Background color
@@ -41,9 +49,15 @@ form:
                 pink: Pink
                 brown: Brown
                 gray: Gray
-        options:
-          type: tab
-          fields:
+            header.truncate:
+              type: text
+              label: Truncate words
+              help: Limits the amount of words in each note to an integer or boolean state
+              default: 40
+              validate:
+                  type: int
+                  min: 1
+                  max: 65536
             taxonomies:
               type: section
               title: PLUGIN_ADMIN.TAXONOMIES
@@ -56,7 +70,13 @@ form:
                   label: Category
                   help: Sets the state of the project
                   highlight: 0
-                  data-options@: '\Grav\Theme\ProjectSpace::categories'
+                  config-options@: site.categories
+                  options:
+                    idea: 'Idea'
+                    ongoing: 'Ongoing'
+                    done: 'Done'
+                    archived: 'Archived'
+                    
                 header.taxonomy.tag:
                   type: selectize
                   allowEmptyOption: true

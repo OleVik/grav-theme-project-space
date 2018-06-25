@@ -5,15 +5,16 @@ use Grav\Common\Grav;
 use Grav\Common\Theme;
 use Grav\Common\Uri;
 use Grav\Common\Page\Page;
+use Grav\Common\Theme\Event;
 
 require __DIR__ . '/vendor/autoload.php';
-require __DIR__ . '/../../plugins/taxonomylist/classes/taxonomylist.php';
+require Grav::instance()['locator']->findResource('user://plugins/taxonomylist/classes/taxonomylist.php', true);
 use Grav\Plugin\Taxonomylist;
 
 /**
  * Project Space Class
  */
-class ProjectSpace extends Masonry
+class ProjectSpace extends Theme
 {
     /**
      * Page parameter-keys
@@ -73,7 +74,7 @@ class ProjectSpace extends Masonry
      */
     public static function categories()
     {
-        return Grav::instance()['config']->get('site.categories');
+        return Grav::instance()['config']->get('themes.project-space.categories');
     }
 
     /**
@@ -102,11 +103,11 @@ class ProjectSpace extends Masonry
         /* Check if Admin-interface */
         if ($this->isAdmin()) {
             $this->enable([
-                'onPageInitialized' => ['onAdminPageInitialized', 0],
+                'onPageInitialized' => ['onAdminPageInitialized', 0]
             ]);
         } else {
             $this->enable([
-                'onPageInitialized' => ['onPageInitialized', 0],
+                'onPageInitialized' => ['onPageInitialized', 0]
             ]);
         }
     }

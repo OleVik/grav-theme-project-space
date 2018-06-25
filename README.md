@@ -25,7 +25,7 @@ feed:
 ---
 ```
 
-Using any FrontMatter you prefer, of course. Each child-page, ie. folder below this page, is treated as a note when you visit the page. For example, a typical note may be in the folder /user/pages/projects/et-genus-fumant-et-omnes/post.md, and look like this:
+Using any FrontMatter you prefer, of course. Each child-page, ie. folder below this page, is treated as a note when you visit the page. For example, a typical note may be in the folder /user/pages/projects/et-genus-fumant-et-omnes, and look like this:
 
 ```
 ---
@@ -42,7 +42,7 @@ taxonomy:
 - [ ] Open a pull request
 ```
 
-Note that the theme expects notes to be in Markdown-files named `post.md`, not `default.md`, as seen [here](https://github.com/OleVik/grav-skeleton-project-space/tree/master/pages/projects). The headers `color` and `taxonomy` are completely optional, and only the former affects the styling of the note. `taxonomy.category` should be a string, not a list. `taxonomy.tag` should, however, be a list of tags. `color` may be one of:
+The headers `color` and `taxonomy` are completely optional, and only the former affects the styling of the note. `taxonomy.category` should be a string, not a list. `taxonomy.tag` should, however, be a list of tags. `color` may be one of:
 
 - `white`: White
 - `red`: Red
@@ -78,13 +78,11 @@ If you are using the Admin-plugin, this is very easy to manage when editing a pa
 
 ![Project Space](assets/style-options.png)
 
-These settings are in the Content-tab, just below where you write the Markdown for your note.
+These settings are in the Options-tab, just below where you change the settings for Publishing when editing a page in Admin. The setting to "Truncate words" can be either an integer, ie. a number above 1, or a boolean state, ie. `1` or `0`. This limits the amount of words in each note when rendered through `default.html.twig`.
 
 #### Taxonomy options:
 
 ![Project Space](assets/taxonomy-options.png)
-
-These settings are in the Options-tab, just below where you change the settings for Publishing.
 
 ### Available layouts, filters and sorting
 
@@ -137,7 +135,6 @@ You should now have all the theme files under
 # Dependencies
 - [Grav Core](https://github.com/getgrav/grav/releases/tag/1.4.5) ~1.4
 - [Quark-theme](https://github.com/getgrav/grav-theme-quark/releases/tag/1.0.3) ~1.0
-- [Masonry-theme](https://github.com/koca/grav-theme-masonry/releases/tag/1.5.0) ~1.5
 - [TaxonomyList-plugin](https://github.com/getgrav/grav-plugin-taxonomylist/releases/tag/1.3.2) ~1.3
 - [AutoDate-plugin](https://github.com/getgrav/grav-plugin-auto-date/releases/tag/1.0.2) ~1.0
 - [MarkdownTasklists-plugin](https://github.com/funkjedi/grav-plugin-markdown-tasklists/releases/tag/1.0.0) ~1.0

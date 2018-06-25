@@ -80,6 +80,14 @@
     {% set posts = posts_tag %}
 {% endif %}
 
+{% if page.header.truncate is defined %}
+    {% set truncate = page.header.truncate %}
+{% elseif config.themes['project-space'].truncate is defined %}
+    {% set truncate = config.themes['project-space'].truncate %}
+{% else %}
+    {% set truncate = false %}
+{% endif %}
+
 <main id="content" class="content js-Pjax-child" role="main">
     <div class="wrapper">
         {% if posts|length > 0 %}
@@ -91,13 +99,13 @@
             {% if display == 'blocks' %}
             <section class="masonry">
                 {% for post in posts[pageOffset:limit] %}
-                    {% include 'partials/article.html.twig' %}
+                    {% include 'partials/article.html.twig' with {'truncate': truncate} %}
                 {% endfor %}
             </section>
             {% elseif display == 'list' %}
             <section class="list">
                 {% for post in posts[pageOffset:limit] %}
-                    {% include 'partials/article.html.twig' with {'truncate': true} %}
+                    {% include 'partials/article.html.twig' with {'truncate': truncate} %}
                 {% endfor %}
             </section>
             {% elseif display == 'category' %}
@@ -112,7 +120,7 @@
                             <a href="{{ page.url }}/category:{{ category }}">{{ category }}</a>
                         </h2>
                         {% for post in posts_category %}
-                            {% include 'partials/article.html.twig' with {'truncate': true} %}
+                            {% include 'partials/article.html.twig' with {'truncate': truncate} %}
                         {% endfor %}
                     {% endif %}
                 {% endfor %}
@@ -129,7 +137,7 @@
                             <a href="{{ page.url }}/color:{{ key }}">{{ name }}</a>
                         </h2>
                         {% for post in posts_color %}
-                            {% include 'partials/article.html.twig' with {'truncate': true} %}
+                            {% include 'partials/article.html.twig' with {'truncate': truncate} %}
                         {% endfor %}
                     {% endif %}
                 {% endfor %}

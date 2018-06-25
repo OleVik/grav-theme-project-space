@@ -1,5 +1,5 @@
 name: Project Space
-version: 1.0.0
+version: 1.1.0
 description: Visualize projects in an organized manner, as notes on a board.
 icon: sticky-note
 author:
@@ -19,3 +19,39 @@ dependencies:
 - { name: taxonomylist, version: '~1.3' }
 - { name: auto-date, version: '~1.0' }
 - { name: markdown-tasklists, version: '~1.0' }
+
+form:
+  validation: loose
+  fields:
+    enabled:
+      type: toggle
+      label: Plugin Status
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    categories:
+      type: selectize
+      allowEmptyOption: true
+      label: Categories
+      help: Sets the available categories
+      selectize:
+        options:
+          - text: Idea
+            value: Idea
+          - text: Ongoing
+            value: Ongoing
+          - text: Done
+            value: Done
+          - text: Archived
+            value: Archived
+      validate:
+        type: commalist
+    truncate:
+      type: text
+      label: Truncate words
+      help: Limits the amount of words in each note to an integer or boolean state
+      default: 40
+      novalidate: true

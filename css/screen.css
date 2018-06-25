@@ -529,7 +529,11 @@ html[lang="en"] {
         margin-left: 0;
         margin-right: 0; } }
     .site-wrapper .content article.post .post-title {
-      font-size: 3.2rem; }
+      margin: 1rem 0;
+      font-size: 3.6rem; }
+    .site-wrapper .content article.post .post-subtitle {
+      margin: 0.8rem 0;
+      font-size: 2.8rem; }
     .site-wrapper .content article.post .post-category {
       font-family: "Roboto", "Droid Sans", arial, sans-serif;
       text-transform: uppercase; }
@@ -1050,7 +1054,7 @@ html {
   height: 100%;
   max-height: 100%;
   font-size: 62.5%;
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
   html input[type="button"] {
     -webkit-appearance: button;
     cursor: pointer; }
@@ -1300,26 +1304,6 @@ table {
   table.plain tbody > tr:nth-child(odd) > th {
     background: transparent; }
 
-@font-face {
-  font-family: "casper-icons";
-  src: url("../fonts/casper-icons.eot?v=1");
-  src: url("../fonts/casper-icons.eot?v=1#iefix") format("embedded-opentype"), url("../fonts/casper-icons.woff?v=1") format("woff"), url("../fonts/casper-icons.ttf?v=1") format("truetype"), url("../fonts/casper-icons.svg?v=1#icons") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-/* Apply these base styles to all icons */
-[class^="icon-"]:before, [class*=" icon-"]:before {
-  font-family: "casper-icons", "Open Sans", sans-serif;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  text-decoration: none !important;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
 ::-moz-selection {
   background: #d6edff; }
 
@@ -1472,7 +1456,7 @@ iframe {
     right: 0;
     height: 70px;
     border: none;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0, transparent 100%); }
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0, rgba(0, 0, 0, 0) 100%); }
 
 .nav {
   position: fixed;
@@ -1641,7 +1625,7 @@ iframe {
   bottom: 0;
   left: 50%;
   margin-left: -75px;
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0, transparent 70%, transparent 100%); }
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%); }
 
 .no-cover .scroll-down {
   display: none; }

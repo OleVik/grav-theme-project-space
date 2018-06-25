@@ -1,8 +1,7 @@
-streams:
- schemes:
-   theme:
-     type: ReadOnlyStream
-     prefixes:
-       '':
-         - user/themes/project-space
-         - user/themes/masonry
+enabled: true
+categories:
+  - Idea
+  - Ongoing
+  - Done
+  - Archived
+truncate: 40
