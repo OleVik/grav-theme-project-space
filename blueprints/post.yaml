@@ -9,15 +9,16 @@ form:
       type: tabs
       active: 1
       fields:
-        content:
-          type: tab
-          fields:
-            header.subtitle:
-              type: text
-              label: Subtitle
         options:
           type: tab
           fields:
+            pageoptions:
+              type: section
+              title: Extra
+              underline: true
+            header.subtitle:
+              type: text
+              label: Subtitle
             styleoptions:
               type: section
               title: Style

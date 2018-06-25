@@ -1,3 +1,9 @@
+# v1.1.1
+##  25-06-2018
+
+1. [](#bugfix)
+    * Move `subtitle`-setting to Options, breaks in Content
+
 # v1.1.0
 ##  25-06-2018
 
