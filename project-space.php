@@ -55,6 +55,7 @@ class ProjectSpace extends Theme
 
     /**
      * Initialize plugin and subsequent events
+     * 
      * @return array
      */
     public static function getSubscribedEvents()
@@ -96,24 +97,30 @@ class ProjectSpace extends Theme
 
     /**
      * Register events and route with Grav
+     * 
      * @return void
      */
     public function onThemeInitialized()
     {
         /* Check if Admin-interface */
         if ($this->isAdmin()) {
-            $this->enable([
-                'onPageInitialized' => ['onAdminPageInitialized', 0]
-            ]);
+            $this->enable(
+                [
+                    'onPageInitialized' => ['onAdminPageInitialized', 0]
+                ]
+            );
         } else {
-            $this->enable([
-                'onPageInitialized' => ['onPageInitialized', 0]
-            ]);
+            $this->enable(
+                [
+                    'onPageInitialized' => ['onPageInitialized', 0]
+                ]
+            );
         }
     }
 
     /**
      * Push styles to Admin-plugin via Assets Manager
+     * 
      * @return void
      */
     public function onAdminPageInitialized()
@@ -122,6 +129,8 @@ class ProjectSpace extends Theme
     }
 
     /**
+     * Logic for handling tools-menu
+     * 
      * @return void
      */
     public function onPageInitialized()
@@ -186,7 +195,8 @@ class ProjectSpace extends Theme
      * 
      * @see https://stackoverflow.com/a/11040612/603387
      */
-    public function inArrayAny($needles, $haystack) {
+    public function inArrayAny($needles, $haystack)
+    {
         return !!array_intersect($needles, $haystack);
     }
 }
