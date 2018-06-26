@@ -1,3 +1,16 @@
+# v1.1.2
+##  26-06-2018
+
+1. [](#improved)
+    * Checks in PHP and Twig for home-page
+    * Post-template styles
+    * Breadcrumb-styles
+    * Header-partial
+2. [](#bugfix)
+    * Fix in-page filter-API
+3. [](#new)
+    * Breadcrumbs in post-template, blueprint dependency
+
 # v1.1.1
 ##  25-06-2018
 

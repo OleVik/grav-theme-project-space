@@ -19,7 +19,8 @@ html[lang="en"] {
 }
 
 /* Overall structure and basic style */
-.home-template {
+.home-template,
+.post-template {
   display: flex;
   overflow-x: hidden;
   overflow-y: auto;
@@ -121,6 +122,19 @@ html[lang="en"] {
     padding: 3rem;
   }
 }
+/* Post-template custom */
+.post-template {
+  .tools-label {
+    display: none;
+  }
+  .site-wrapper {
+    margin-top: 8rem;
+    .post-meta {
+      margin-top: 2rem;
+    }
+  }
+}
+
 
 /* Display modes and custom styles */
 .site-wrapper {
@@ -507,7 +521,7 @@ input[type="number"]::placeholder {
   }
 }
 
-/* Pagination custom */
+/* Pagination and breadcrumbs custom */
 .site-wrapper {
   .pagination {
     margin: 0 auto;
@@ -529,6 +543,12 @@ input[type="number"]::placeholder {
     .active {
       font-weight: bold;
       border-color: rgba($color_arapawa_6_approx, 0.2);
+    }
+  }
+  .breadcrumbs {
+    font-size: 1.4rem;
+    a {
+      text-decoration: none;
     }
   }
 }

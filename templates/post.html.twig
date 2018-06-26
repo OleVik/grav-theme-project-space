@@ -1,25 +1,26 @@
 {% embed 'partials/base.html.twig' %}
 
 {% block body %}
-<body class="post-template nav-closed" itemscope itemtype="http://schema.org/Article">
+<body class="home-template post-template" itemscope itemtype="http://schema.org/Article">
 {% endblock %}
 
 {% block content %}
 
-{% include 'partials/header.html.twig' %}
-
 <main class="content" role="main">
     <article class="post">
         <header class="post-header">
-            {% include 'partials/breadcrumbs.html.twig' %}
             <h1 class="post-title">{{page.title}}</h1>
             {% if page.header.subtitle %}
             <h2 class="post-subtitle">{{ page.header.subtitle }}</h2>
             {% endif %}
             <section class="post-meta">
-               <time class="post-date" datetime="{{ page.date | date(site.date_short) }}">{{ page.date | date(site.date_long) }}</time>
+                {% include 'partials/breadcrumbs.html.twig' %}
+                <time class="post-date" datetime="{{ page.date | date(site.date_short) }}">{{ page.date | date(site.date_long) }}</time>
+                {% if page.taxonomy.category[0] is defined and page.taxonomy.category[0] is not empty %}
+                    <a href="{{ base_url }}/category{{ config.system.param_sep }}{{ page.taxonomy.category[0] }}">{{ page.taxonomy.category[0]|upper }}</a>
+                {% endif %}
                 {% if page.taxonomy.tag|length > 0 %}
-                    on {% for tag in page.taxonomy.tag %}<span class="post-tag-{{tag}}"><a href="{{ base_url }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a></span>{%if not loop.last %}, {% endif %}{% endfor %}
+                in {% for tag in page.taxonomy.tag %}<span class="post-tag-{{tag}}"><a href="{{ base_url }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a></span>{%if not loop.last %}, {% endif %}{% endfor %}
                 {% endif %}
             </section>
         </header>

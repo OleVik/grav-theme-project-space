@@ -30,7 +30,13 @@
     'tag': tag|default([])
 } %}
 
-<form id="tools-handler" class="js-Pjax" action="{{ page.url }}" method="GET">
+{% if system.home.alias == '/' ~ page.slug %}
+  {% set action = '/' ~ page.slug %}
+{% else %}
+  {% set action = page.url %}
+{% endif %}
+
+<form id="tools-handler" class="js-Pjax" action="{{ action }}" method="GET">
   <nav role="navigation">
     <h4 class="nav-subtitle">{{ 'THEME_MASONRY.TOOLS.DISPLAY.MENU'|t }}</h4>
     <div class="tools-container">
@@ -110,7 +116,7 @@
     <h4 class="nav-subtitle">{{ 'THEME_MASONRY.TOOLS.FILTER.MENU'|t }}</h4>
     {% if taxonomylist %}
     <select id="filter-category" name="category[]" class="filter" multiple="multiple">
-      {% for category in site.categories %}
+      {% for category in theme.categories %}
         <option value="{{ category }}" {% if in_array_any([category], params.category) %}selected{% endif %}>{{ category }}</option>
       {% endfor %}
     </select>

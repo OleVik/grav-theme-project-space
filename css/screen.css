@@ -403,19 +403,24 @@ html[lang="en"] {
     position: relative; }
 
 /* Overall structure and basic style */
-.home-template {
+.home-template,
+.post-template {
   display: flex;
   overflow-x: hidden;
   overflow-y: auto;
   min-height: 100%;
   min-height: 100vh; }
   .home-template .tools-checkbox,
-  .home-template .menu-checkbox {
+  .home-template .menu-checkbox,
+  .post-template .tools-checkbox,
+  .post-template .menu-checkbox {
     position: absolute;
     opacity: 0;
     z-index: 200; }
   .home-template .tools-label,
-  .home-template .menu-label {
+  .home-template .menu-label,
+  .post-template .tools-label,
+  .post-template .menu-label {
     position: absolute;
     top: 3em;
     display: block;
@@ -426,7 +431,9 @@ html[lang="en"] {
     transition: transform 0.3s;
     z-index: 200; }
     .home-template .tools-label:before,
-    .home-template .menu-label:before {
+    .home-template .menu-label:before,
+    .post-template .tools-label:before,
+    .post-template .menu-label:before {
       font: normal normal normal 16px/1 FontAwesome;
       text-rendering: auto;
       text-rendering: optimizeLegibility;
@@ -437,56 +444,88 @@ html[lang="en"] {
       vertical-align: baseline; }
     @media (max-width: 576px) {
       .home-template .tools-label,
-      .home-template .menu-label {
+      .home-template .menu-label,
+      .post-template .tools-label,
+      .post-template .menu-label {
         top: 0.75em; } }
-  .home-template .tools-label {
+  .home-template .tools-label,
+  .post-template .tools-label {
     left: 3em; }
-    .home-template .tools-label:before {
+    .home-template .tools-label:before,
+    .post-template .tools-label:before {
       content: "\f013"; }
     @media (max-width: 576px) {
-      .home-template .tools-label {
+      .home-template .tools-label,
+      .post-template .tools-label {
         left: 0.75em; } }
-  .home-template .menu-label {
+  .home-template .menu-label,
+  .post-template .menu-label {
     right: 3em; }
-    .home-template .menu-label:before {
+    .home-template .menu-label:before,
+    .post-template .menu-label:before {
       content: "\f0c9"; }
     @media (max-width: 576px) {
-      .home-template .menu-label {
+      .home-template .menu-label,
+      .post-template .menu-label {
         right: 0.75em; } }
   .home-template .tools-checkbox:checked ~ .tools-label:before,
-  .home-template .menu-checkbox:checked ~ .menu-label:before {
+  .home-template .menu-checkbox:checked ~ .menu-label:before,
+  .post-template .tools-checkbox:checked ~ .tools-label:before,
+  .post-template .menu-checkbox:checked ~ .menu-label:before {
     content: "\f00d"; }
-  .home-template .menu-checkbox:checked ~ .menu-label {
+  .home-template .menu-checkbox:checked ~ .menu-label,
+  .post-template .menu-checkbox:checked ~ .menu-label {
     color: #fff;
     border-color: rgba(255, 255, 255, 0.6); }
-    .home-template .menu-checkbox:checked ~ .menu-label:hover {
+    .home-template .menu-checkbox:checked ~ .menu-label:hover,
+    .post-template .menu-checkbox:checked ~ .menu-label:hover {
       background-color: #222222; }
-  .home-template .tools-checkbox:checked ~ .site-wrapper .content {
+  .home-template .tools-checkbox:checked ~ .site-wrapper .content,
+  .post-template .tools-checkbox:checked ~ .site-wrapper .content {
     margin-left: 250px; }
-  .home-template .menu-checkbox:checked ~ .site-wrapper .content {
+  .home-template .menu-checkbox:checked ~ .site-wrapper .content,
+  .post-template .menu-checkbox:checked ~ .site-wrapper .content {
     width: calc(100% - 250px); }
   .home-template .tools-checkbox:checked ~ #tools-drawer.sidebar,
-  .home-template .menu-checkbox:checked ~ #menu-drawer.sidebar {
+  .home-template .menu-checkbox:checked ~ #menu-drawer.sidebar,
+  .post-template .tools-checkbox:checked ~ #tools-drawer.sidebar,
+  .post-template .menu-checkbox:checked ~ #menu-drawer.sidebar {
     width: 250px; }
     @media (max-width: 576px) {
       .home-template .tools-checkbox:checked ~ #tools-drawer.sidebar,
-      .home-template .menu-checkbox:checked ~ #menu-drawer.sidebar {
+      .home-template .menu-checkbox:checked ~ #menu-drawer.sidebar,
+      .post-template .tools-checkbox:checked ~ #tools-drawer.sidebar,
+      .post-template .menu-checkbox:checked ~ #menu-drawer.sidebar {
         width: 100%; } }
-  .home-template .tools-checkbox:checked ~ #tools-drawer.sidebar {
+  .home-template .tools-checkbox:checked ~ #tools-drawer.sidebar,
+  .post-template .tools-checkbox:checked ~ #tools-drawer.sidebar {
     left: 0; }
-  .home-template .menu-checkbox:checked ~ #menu-drawer.sidebar {
+  .home-template .menu-checkbox:checked ~ #menu-drawer.sidebar,
+  .post-template .menu-checkbox:checked ~ #menu-drawer.sidebar {
     right: 0; }
-  .home-template .site-wrapper {
+  .home-template .site-wrapper,
+  .post-template .site-wrapper {
     flex: 1;
     position: relative;
     min-height: 100vh;
     transition: transform 0.3s;
     background-color: #f6f6f6; }
-    .home-template .site-wrapper .content {
+    .home-template .site-wrapper .content,
+    .post-template .site-wrapper .content {
       background-color: #f6f6f6; }
-  .home-template .site-footer {
+  .home-template .site-footer,
+  .post-template .site-footer {
     margin: 0;
     padding: 3rem; }
+
+/* Post-template custom */
+.post-template .tools-label {
+  display: none; }
+
+.post-template .site-wrapper {
+  margin-top: 8rem; }
+  .post-template .site-wrapper .post-meta {
+    margin-top: 2rem; }
 
 /* Display modes and custom styles */
 .site-wrapper {
@@ -801,7 +840,7 @@ input[type="number"]::placeholder {
     input[type="number"]::placeholder {
       font-size: 1.8rem; } }
 
-/* Pagination custom */
+/* Pagination and breadcrumbs custom */
 .site-wrapper .pagination {
   margin: 0 auto;
   font-family: "Merriweather", Georgia, serif; }
@@ -818,6 +857,11 @@ input[type="number"]::placeholder {
   .site-wrapper .pagination .active {
     font-weight: bold;
     border-color: rgba(0, 0, 100, 0.2); }
+
+.site-wrapper .breadcrumbs {
+  font-size: 1.4rem; }
+  .site-wrapper .breadcrumbs a {
+    text-decoration: none; }
 
 /* DatePicker custom */
 input[data-toggle="datepicker"] {

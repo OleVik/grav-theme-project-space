@@ -42,7 +42,9 @@
             {% include 'partials/navigation.html.twig' %}
         </div>
         <div class="site-wrapper">
-            {% block content %}{% endblock %}
+            {% block content %}
+                {% block header %}{% endblock %}
+            {% endblock %}
             <footer class="site-footer">
                 <section class="copyright"><a href="{{ base_url }}">{{ site.title }}</a> &copy; {{ "now"|date("Y") }}</section>
                 <section class="poweredby">Published with <a href="https://getgrav.org">Grav</a></section>

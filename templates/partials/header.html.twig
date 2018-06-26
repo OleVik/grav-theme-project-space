@@ -1,7 +1,22 @@
-<header class="main-header post-head {% if page.header.image %}" style="background-image: url({{ page.media[page.header.image].url }}){% else %}no-cover{% endif %}">
-    <nav class="main-nav {% if page.header.image %}overlay{% endif %} clearfix">
-        {% if site.logo %}
-            <a class="blog-logo" href="{{base_url}}"><img src="{{ theme_url }}/images/{{site.logo}}" alt="{{ site.author.title}}" /></a>
-        {% endif %}
+<header class="main-header" {% if page.header.cover %} style="background-image: url({{ page.media[page.header.cover].url }})"{% endif %}>
+    {% if site.logo %}
+    <nav class="main-nav overlay clearfix">
+        <a class="blog-logo" href="{{ home_url  }}"><img src="{{ theme_url }}/images/{{site.logo}}" alt="{{ site.title }}" width="100%" height="100%" /></a>
     </nav>
+    {% endif %}
+    <div class="main-header-content inner">
+        <h1 class="page-title">
+            {% if system.home.alias == '/' ~ page.slug %}
+            <a href="{{ home_url }}">{{ site.title }}</a>
+            {% else %}
+            <a href="{{ page.url }}">{{ page.title }}</a>
+            {% endif %}
+        </h1>
+        {% if site.description is defined and site.description is not empty %}
+        <h2 class="page-description">{{ site.description }}</h2>
+        {% endif %}
+    </div>
+    {% if page.header.cover %}
+    <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
+    {% endif %}
 </header>
