@@ -1,3 +1,14 @@
+# v1.1.3
+##  03-07-2018
+
+1. [](#improved)
+    * Meta-styling
+2. [](#bugfix)
+    * Content-height
+    * Superfluous meta
+    * Date-retrieval from system-config
+    * Article-partial URLs for category and tags
+
 # v1.1.2
 ##  26-06-2018
 

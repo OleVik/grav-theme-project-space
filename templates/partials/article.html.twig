@@ -1,3 +1,5 @@
+{% set long_date = config.system.pages.dateformat.long %}
+
 <article class="post {% if post.header.color %}{{ post.header.color }}{% endif %}" itemscope itemtype="http://schema.org/BlogPosting" role="article">
     {% if post.header.image %}
         <figure class="post-image" itemprop="image">
@@ -8,7 +10,7 @@
     {% endif %}
     <header class="post-header">
         <h3 class="post-title" itemprop="name">
-            <a href="{{post.url}}" itemprop="url">{{post.title}}</a>
+            <a href="{{ post.url }}" itemprop="url">{{ post.title }}</a>
         </h3>
     </header>
     <section class="post-excerpt" itemprop="description">
@@ -23,18 +25,26 @@
     <footer class="post-meta">
         <span class="post-category">
             <b>
+                {% if system.home.alias == '/' ~ page.slug %}
+                <a href="{{ '/' ~ page.slug }}/category{{ config.system.param_sep }}{{ post.taxonomy.category[0] }}">{{ post.taxonomy.category[0] }}</a>
+                {% else %}
                 <a href="{{ page.url }}/category{{ config.system.param_sep }}{{ post.taxonomy.category[0] }}">{{ post.taxonomy.category[0] }}</a>
+                {% endif %}
             </b>
         </span>
         {% if post.taxonomy.tag|length > 0 %}
             {% for tag in post.taxonomy.tag[0:3] %}
                 {% spaceless %}
                 <span class="post-tag">
+                    {% if system.home.alias == '/' ~ page.slug %}
+                    <a href="{{ '/' ~ page.slug }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a>
+                    {% else %}
                     <a href="{{ page.url }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a>
+                    {% endif %}
                 </span>{%if not loop.last %}, {% endif %}
                 {% endspaceless %}
             {% endfor %}
         {% endif %}
-        <time class="post-date" datetime="{{ post.modified | date(site.date_short) }}" title="Created: {{ post.date | date(site.date_short) }}, edited: {{ post.modified | date(site.date_short) }}">{{ post.modified | date(site.date_short) }}</time>
+        <time class="post-date" datetime="{{ post.modified | date(long_date) }}" title="Created: {{ post.date | date(long_date) }}, edited: {{ post.modified | date(long_date) }}">{{ post.date|date(long_date) }}</time>
     </footer>
 </article>

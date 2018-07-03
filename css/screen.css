@@ -512,6 +512,8 @@ html[lang="en"] {
     background-color: #f6f6f6; }
     .home-template .site-wrapper .content,
     .post-template .site-wrapper .content {
+      min-height: 80%;
+      min-height: 80vh;
       background-color: #f6f6f6; }
   .home-template .site-footer,
   .post-template .site-footer {
@@ -526,6 +528,22 @@ html[lang="en"] {
   margin-top: 8rem; }
   .post-template .site-wrapper .post-meta {
     margin-top: 2rem; }
+    .post-template .site-wrapper .post-meta .post-meta-category {
+      font-weight: bold; }
+  .post-template .site-wrapper .read-next {
+    margin-top: 0; }
+    .post-template .site-wrapper .read-next .read-next-story {
+      color: #111111; }
+      .post-template .site-wrapper .read-next .read-next-story .post {
+        padding-top: 0; }
+        .post-template .site-wrapper .read-next .read-next-story .post > * {
+          text-align: left; }
+        .post-template .site-wrapper .read-next .read-next-story .post h2 {
+          text-align: center; }
+      .post-template .site-wrapper .read-next .read-next-story:hover .post:before {
+        color: #000; }
+      .post-template .site-wrapper .read-next .read-next-story:hover h2 {
+        color: #ed0677; }
 
 /* Display modes and custom styles */
 .site-wrapper {

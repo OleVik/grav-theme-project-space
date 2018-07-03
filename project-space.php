@@ -159,7 +159,6 @@ class ProjectSpace extends Theme
             $location = $this->grav['page']->url(true) . $params;
         }
         if (isset($_GET['redirect']) && !empty($location)) {
-            $this->grav['debugger']->addMessage($location);
             header('Location: ' . $location, true, 307);
             exit();
         }

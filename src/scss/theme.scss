@@ -114,6 +114,8 @@ html[lang="en"] {
     transition: transform 0.3s;
     background-color: $color_black_haze_approx;
     .content {
+      min-height: 80%;
+      min-height: 80vh;
       background-color: $color_black_haze_approx;
     }
   }
@@ -131,6 +133,32 @@ html[lang="en"] {
     margin-top: 8rem;
     .post-meta {
       margin-top: 2rem;
+      .post-meta-category {
+        font-weight: bold;
+      }
+    }
+    .read-next {
+      margin-top: 0;
+      .read-next-story {
+        color: $color_woodsmoke_approx;
+        .post {
+          padding-top: 0;
+          > * {
+            text-align: left;
+          }
+          h2 {
+            text-align: center;
+          }
+        }
+        &:hover {
+          .post:before {
+            color: $black;
+          }
+          h2 {
+            color: $color_rose_approx;
+          }
+        }
+      }
     }
   }
 }

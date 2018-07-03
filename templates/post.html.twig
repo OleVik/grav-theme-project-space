@@ -17,18 +17,16 @@
                 {% include 'partials/breadcrumbs.html.twig' %}
                 <time class="post-date" datetime="{{ page.date | date(site.date_short) }}">{{ page.date | date(site.date_long) }}</time>
                 {% if page.taxonomy.category[0] is defined and page.taxonomy.category[0] is not empty %}
-                    <a href="{{ base_url }}/category{{ config.system.param_sep }}{{ page.taxonomy.category[0] }}">{{ page.taxonomy.category[0]|upper }}</a>
+                    <a href="{{ base_url }}/category{{ config.system.param_sep }}{{ page.taxonomy.category[0] }}" class="post-meta-category">{{ page.taxonomy.category[0]|upper }}</a>
                 {% endif %}
                 {% if page.taxonomy.tag|length > 0 %}
-                in {% for tag in page.taxonomy.tag %}<span class="post-tag-{{tag}}"><a href="{{ base_url }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a></span>{%if not loop.last %}, {% endif %}{% endfor %}
+                &nbsp;{% for tag in page.taxonomy.tag %}<span class="post-tag-{{tag}}"><a href="{{ base_url }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a></span>{%if not loop.last %}, {% endif %}{% endfor %}
                 {% endif %}
             </section>
         </header>
 
         <section class="post-content">
-            {{content}}
-            <div id="disqus_thread"></div>
-            <noscript><a href="https://disqus.com/?ref_noscript" rel="nofollow">{{ 'THEME_MASONRY.DISQUS.NOSCRIPT'|t }}</a></noscript>
+            {{ content }}
         </section>
 
         <footer class="post-footer">
@@ -40,25 +38,6 @@
                         </a>
                     </figure>
                 {% endif %}
-        <section class="author">
-           {%if page.taxonomy.author %}
-              {% for author in page.taxonomy.author %}
-                 <h4><a href="{{base_url}}/author:{{ author }}">{{ author }}</a></h4>
-                 <p><a href="{{base_url}}/author:{{ author }}">{{ 'THEME_MASONRY.BLOG.POST.MORE.SPEC_AUTHOR'|t }} {{ author }}.</a></p>
-              {% endfor %}
-           {% else %}
-              <h4><a href="{{base_url}}">{{site.author.name}}</a></h4>
-              {%if site.author.bio %}
-                 <p>{{site.author.bio}}</p>
-              {% else %}
-                 <p><a href="{{base_url}}">{{ 'THEME_MASONRY.BLOG.POST.MORE.AUTHOR'|t }}</a></p>
-              {% endif %}
-           {% endif %}
-           <div class="author-meta">
-           {% if site.author.location %}<span class="author-location icon-location">{{site.author.location}}</span>{% endif %}
-           {% if site.author.website %}<span class="author-link icon-link"><a href="{{site.author.website}}">{{site.author.website}}</a></span>{% endif %}
-           </div>
-        </section>
             {% endif %}
            {% if config.plugins.comments.enabled %}
               {% include 'partials/comments.html.twig' with {'page': page} %}
@@ -68,12 +47,19 @@
     </article>
 </main>
 
+{% if page.header.truncate is defined %}
+    {% set truncate = page.header.truncate %}
+{% elseif config.themes['project-space'].truncate is defined %}
+    {% set truncate = config.themes['project-space'].truncate %}
+{% else %}
+    {% set truncate = false %}
+{% endif %}
 <aside class="read-next">
     {% if not page.isFirst %}
     <a class="read-next-story {% if page.nextSibling.header.image %}" style="background-image: url({{ page.nextSibling.media[page.nextSibling.header.image].url }}){% else %}no-cover{% endif %}" href="{{page.nextSibling.url}}">
         <section class="post">
             <h2>{{page.nextSibling.title}}</h2>
-            <p>{{ page.nextSibling.content | striptags | truncate(140) }}&hellip;</p>
+            <p>{{ page.nextSibling.content|truncate_words(truncate) }}</p>
         </section>
     </a>
     {% endif %}
@@ -81,7 +67,7 @@
     <a class="read-next-story prev {% if page.prevSibling.header.image %}" style="background-image: url({{ page.prevSibling.media[page.prevSibling.header.image].url }}){% else %}no-cover{% endif %}" href="{{page.prevSibling.url}}">
         <section class="post">
             <h2>{{page.prevSibling.title}}</h2>
-            <p>{{ page.prevSibling.content | striptags | truncate(140) }}&hellip;</p>
+            <p>{{ page.prevSibling.content|truncate_words(truncate) }}</p>
         </section>
     </a>
     {% endif %}
@@ -90,19 +76,6 @@
 
 {% endblock %}
 
-{% block bottom %}
-
-    {% if site.disqus %}
-        <script>
-        (function() {
-        var d = document, s = d.createElement('script');
-        s.src = '//{{site.disqus}}.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-        })();
-        </script>
-    {% endif %}
-
-{% endblock %}
+{% block bottom %}{% endblock %}
 
 {% endembed %}
