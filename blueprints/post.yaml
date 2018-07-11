@@ -71,13 +71,7 @@ form:
                   label: Category
                   help: Sets the state of the project
                   highlight: 0
-                  config-options@: site.categories
-                  options:
-                    idea: 'Idea'
-                    ongoing: 'Ongoing'
-                    done: 'Done'
-                    archived: 'Archived'
-                    
+                  data-options@: '\Grav\Theme\ProjectSpace::categories'
                 header.taxonomy.tag:
                   type: selectize
                   allowEmptyOption: true
