@@ -1,7 +1,6 @@
 # v1.1.4
 ##  11-07-2018
 
-
 1. [](#bugfix)
     * Fix blueprint
 
