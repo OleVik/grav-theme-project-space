@@ -31,9 +31,9 @@
 } %}
 
 {% if system.home.alias == '/' ~ page.slug %}
-  {% set action = '/' ~ page.slug %}
+  {% set action = base_url_absolute ~ '/' ~ page.slug %}
 {% else %}
-  {% set action = page.url %}
+  {% set action = base_url_absolute ~ page.url %}
 {% endif %}
 
 <form id="tools-handler" class="js-Pjax" action="{{ action }}" method="GET">

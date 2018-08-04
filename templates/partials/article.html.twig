@@ -28,7 +28,7 @@
                 {% if system.home.alias == '/' ~ page.slug %}
                 <a href="{{ '/' ~ page.slug }}/category{{ config.system.param_sep }}{{ post.taxonomy.category[0] }}">{{ post.taxonomy.category[0] }}</a>
                 {% else %}
-                <a href="{{ page.url }}/category{{ config.system.param_sep }}{{ post.taxonomy.category[0] }}">{{ post.taxonomy.category[0] }}</a>
+                <a href="{{ page.route }}/category{{ config.system.param_sep }}{{ post.taxonomy.category[0] }}">{{ post.taxonomy.category[0] }}</a>
                 {% endif %}
             </b>
         </span>
@@ -39,7 +39,7 @@
                     {% if system.home.alias == '/' ~ page.slug %}
                     <a href="{{ '/' ~ page.slug }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a>
                     {% else %}
-                    <a href="{{ page.url }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a>
+                    <a href="{{ page.route }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a>
                     {% endif %}
                 </span>{%if not loop.last %}, {% endif %}
                 {% endspaceless %}

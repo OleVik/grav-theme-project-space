@@ -6,7 +6,7 @@
     {% include 'partials/header.html.twig' %}
 {% endblock %}
 
-{% set collection = page.evaluate([{'@page.children': page.route}]) %}
+{% set collection = page.evaluate([{'@page.children': '/' ~ page.slug}]) %}
 
 {% set display = uri.param('display')|default('blocks') %}
 

@@ -9,7 +9,7 @@
             {% if system.home.alias == '/' ~ page.slug %}
             <a href="{{ home_url }}">{{ site.title }}</a>
             {% else %}
-            <a href="{{ page.url }}">{{ page.title }}</a>
+            <a href="{{ page.route }}">{{ page.title }}</a>
             {% endif %}
         </h1>
         {% if site.description is defined and site.description is not empty %}
