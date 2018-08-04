@@ -1,3 +1,13 @@
+# v1.1.5
+##  04-08-2018
+
+1. [](#new)
+    * Add demo
+2. [](#bugfix)
+    * Fix collection-evaluation
+    * Fix blueprint, again
+    * Fix languages
+
 # v1.1.4
 ##  11-07-2018
 

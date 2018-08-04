@@ -6,7 +6,7 @@
     {% include 'partials/header.html.twig' %}
 {% endblock %}
 
-{% set collection = page.evaluate([{'@page.children': page.url}]) %}
+{% set collection = page.evaluate([{'@page.children': page.route}]) %}
 
 {% set display = uri.param('display')|default('blocks') %}
 
@@ -131,8 +131,8 @@
             </section>
         {% else %}
         <section class="post-content inner">
-            <h1>{{ 'THEME_MASONRY.EMPTY.TITLE'|t }}</h1>
-            <p>{{ 'THEME_MASONRY.EMPTY.CONTENT'|t }}.</p>
+            <h1>{{ 'THEME_PROJECTSPACE.EMPTY.TITLE'|t }}</h1>
+            <p>{{ 'THEME_PROJECTSPACE.EMPTY.CONTENT'|t }}.</p>
         </section>
         {% endif %}
     </div>

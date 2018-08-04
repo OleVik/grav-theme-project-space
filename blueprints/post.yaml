@@ -9,56 +9,57 @@ form:
       type: tabs
       active: 1
       fields:
-        options:
+        content:
           type: tab
           fields:
-            pageoptions:
-              type: section
-              title: Extra
-              underline: true
             header.subtitle:
               type: text
-              label: Subtitle
+              style: vertical
+              ordering@: header.title
+              label: THEME_PROJECTSPACE.ADMIN.SUBTITLE
             styleoptions:
               type: section
-              title: Style
+              title: THEME_PROJECTSPACE.ADMIN.STYLE
               underline: true
             header.image:
               type: filepicker
               folder: '@self'
               preview_images: true
-              label: Image for thumbnail and header
-              help: Sets the image to use as thumbnail and header
+              label: THEME_PROJECTSPACE.ADMIN.HEADERIMAGE.LABEL
+              help: THEME_PROJECTSPACE.ADMIN.HEADERIMAGE.HELP
               accept:
                 - 'image/*'
             header.color:
               type: select
-              label: Background color
-              help: Sets the background color for the project
+              label: THEME_PROJECTSPACE.ADMIN.COLOR.LABEL
+              help: THEME_PROJECTSPACE.ADMIN.COLOR.HELP
               default: white
               highlight: 0
               options:
-                white: White
-                red: Red
-                orange: Orange
-                yellow: Yellow
-                green: Green
-                teal: Teal
-                blue: Blue
-                dark-blue: Dark Blue
-                purple: Purple
-                pink: Pink
-                brown: Brown
-                gray: Gray
+                white: THEME_PROJECTSPACE.ADMIN.COLOR.OPTIONS.WHITE
+                red: THEME_PROJECTSPACE.ADMIN.COLOR.OPTIONS.RED
+                orange: THEME_PROJECTSPACE.ADMIN.COLOR.OPTIONS.ORANGE
+                yellow: THEME_PROJECTSPACE.ADMIN.COLOR.OPTIONS.YELLOW
+                green: THEME_PROJECTSPACE.ADMIN.COLOR.OPTIONS.GREEN
+                teal: THEME_PROJECTSPACE.ADMIN.COLOR.OPTIONS.TEAL
+                blue: THEME_PROJECTSPACE.ADMIN.COLOR.OPTIONS.BLUE
+                dark-blue: THEME_PROJECTSPACE.ADMIN.COLOR.OPTIONS.DARKBLUE
+                purple: THEME_PROJECTSPACE.ADMIN.COLOR.OPTIONS.PURPLE
+                pink: THEME_PROJECTSPACE.ADMIN.COLOR.OPTIONS.PINK
+                brown: THEME_PROJECTSPACE.ADMIN.COLOR.OPTIONS.BROWN
+                gray: THEME_PROJECTSPACE.ADMIN.COLOR.OPTIONS.GRAY
             header.truncate:
               type: text
-              label: Truncate words
-              help: Limits the amount of words in each note to an integer or boolean state
+              label: THEME_PROJECTSPACE.ADMIN.TRUNCATE.LABEL
+              help: THEME_PROJECTSPACE.ADMIN.TRUNCATE.HELP
               default: 40
               validate:
                   type: int
                   min: 1
                   max: 65536
+        options:
+          type: tab
+          fields:
             taxonomies:
               type: section
               title: PLUGIN_ADMIN.TAXONOMIES
@@ -68,15 +69,15 @@ form:
                   unset@: true
                 header.taxonomy.category:
                   type: select
-                  label: Category
-                  help: Sets the state of the project
+                  label: THEME_PROJECTSPACE.ADMIN.CATEGORY.LABEL
+                  help: THEME_PROJECTSPACE.ADMIN.CATEGORY.HELP
                   highlight: 0
                   data-options@: '\Grav\Theme\ProjectSpace::categories'
                 header.taxonomy.tag:
                   type: selectize
                   allowEmptyOption: true
-                  label: Tags
-                  help: Applies tags to the project
+                  label: THEME_PROJECTSPACE.ADMIN.TAGS.LABEL
+                  help: THEME_PROJECTSPACE.ADMIN.TAGS.HELP
                   selectize:
                     data-options@: '\Grav\Theme\ProjectSpace::tags'
                   validate:

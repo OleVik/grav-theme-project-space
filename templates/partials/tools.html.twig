@@ -38,55 +38,55 @@
 
 <form id="tools-handler" class="js-Pjax" action="{{ action }}" method="GET">
   <nav role="navigation">
-    <h4 class="nav-subtitle">{{ 'THEME_MASONRY.TOOLS.DISPLAY.MENU'|t }}</h4>
+    <h4 class="nav-subtitle">{{ 'THEME_PROJECTSPACE.TOOLS.DISPLAY.MENU'|t }}</h4>
     <div class="tools-container">
       <ul class="menu-buttons">
         <li>
           <label>
             <input type="radio" class="hide" name="display" value="" {% if params.display is empty %}checked{% endif %}>
-            <i title="{{ 'THEME_MASONRY.TOOLS.DISPLAY.BLOCKS'|t }} (default)" class="fa fa-cubes"></i>
+            <i title="{{ 'THEME_PROJECTSPACE.TOOLS.DISPLAY.BLOCKS'|t }} (default)" class="fa fa-cubes"></i>
           <label>
         </li>
         <li>
           <label>
             <input type="radio" class="hide" name="display" value="list" {% if params.display == 'list' %}checked{% endif %}>
-            <i title="{{ 'THEME_MASONRY.TOOLS.DISPLAY.LIST'|t }}" class="fa fa-list-ol"></i>
+            <i title="{{ 'THEME_PROJECTSPACE.TOOLS.DISPLAY.LIST'|t }}" class="fa fa-list-ol"></i>
           <label>
         </li>
         <li>
           <label>
             <input type="radio" class="hide" name="display" value="category" {% if params.display == 'category' %}checked{% endif %}>
-            <i title="{{ 'THEME_MASONRY.TOOLS.DISPLAY.CATEGORY'|t }}" class="fa fa-list-alt"></i>
+            <i title="{{ 'THEME_PROJECTSPACE.TOOLS.DISPLAY.CATEGORY'|t }}" class="fa fa-list-alt"></i>
           <label>
         </li>
         <li>
           <label>
             <input type="radio" class="hide" name="display" value="color" {% if params.display == 'color' %}checked{% endif %}>
-            <i title="{{ 'THEME_MASONRY.TOOLS.DISPLAY.COLOR'|t }}" class="fa fa-list"></i>
+            <i title="{{ 'THEME_PROJECTSPACE.TOOLS.DISPLAY.COLOR'|t }}" class="fa fa-list"></i>
           <label>
         </li>
       </ul>
     </div>
-    <h4 class="nav-subtitle">{{ 'THEME_MASONRY.TOOLS.SORT.MENU'|t }}</h4>
+    <h4 class="nav-subtitle">{{ 'THEME_PROJECTSPACE.TOOLS.SORT.MENU'|t }}</h4>
     <div class="tools-container grid-2">
       <div>
         <ul class="menu-buttons">
           <li>
             <label>
               <input type="radio" class="hide" name="sort-by" value="title" {% if params.orderBy == 'title' %}checked{% endif %}>
-              <i title="{{ 'THEME_MASONRY.TOOLS.SORT.TITLE'|t }}" class="fa fa-font"></i>
+              <i title="{{ 'THEME_PROJECTSPACE.TOOLS.SORT.TITLE'|t }}" class="fa fa-font"></i>
             </label>
           </li>
           <li>
             <label>
               <input type="radio" class="hide" name="sort-by" value="date" {% if params.orderBy == 'date' %}checked{% endif %}>
-              <i title="{{ 'THEME_MASONRY.TOOLS.SORT.DATE'|t }}" class="fa fa-calendar"></i>
+              <i title="{{ 'THEME_PROJECTSPACE.TOOLS.SORT.DATE'|t }}" class="fa fa-calendar"></i>
             </label>
           </li>
           <li>
             <label>
               <input type="radio" class="hide" name="sort-by" value="folder" {% if params.orderBy == 'folder' %}checked{% endif %}>
-              <i title="{{ 'THEME_MASONRY.TOOLS.SORT.FOLDER'|t }}" class="fa fa-folder"></i>
+              <i title="{{ 'THEME_PROJECTSPACE.TOOLS.SORT.FOLDER'|t }}" class="fa fa-folder"></i>
             </label>
           </li>
         </ul>
@@ -96,13 +96,13 @@
           <li>
             <label>
               <input type="radio" class="hide" name="sort-dir" value="asc" {% if params.orderDir == 'asc' %}checked{% endif %}>
-              <i title="{{ 'THEME_MASONRY.TOOLS.SORT.ASC'|t }}" class="fa fa-sort-asc"></i>
+              <i title="{{ 'THEME_PROJECTSPACE.TOOLS.SORT.ASC'|t }}" class="fa fa-sort-asc"></i>
             </label>
           </li>
           <li>
             <label>
               <input type="radio" class="hide" name="sort-dir" value="desc" {% if params.orderDir == 'desc' %}checked{% endif %}>
-              <i title="{{ 'THEME_MASONRY.TOOLS.SORT.DESC'|t }}" class="fa fa-sort-desc"></i>
+              <i title="{{ 'THEME_PROJECTSPACE.TOOLS.SORT.DESC'|t }}" class="fa fa-sort-desc"></i>
             </label>
           </li>
         </ul>
@@ -113,7 +113,7 @@
       <input type="number" id="limit" name="limit" min="1" max="25" placeholder="10" {% if params.limit is not empty %}value="{{ params.limit }}"{% endif %}>
       <span class="help-text"></span>
     </label>
-    <h4 class="nav-subtitle">{{ 'THEME_MASONRY.TOOLS.FILTER.MENU'|t }}</h4>
+    <h4 class="nav-subtitle">{{ 'THEME_PROJECTSPACE.TOOLS.FILTER.MENU'|t }}</h4>
     {% if taxonomylist %}
     <select id="filter-category" name="category[]" class="filter" multiple="multiple">
       {% for category in theme.categories %}
@@ -133,7 +133,7 @@
         {% endfor %}
       </select>
     </div>
-    <h4 class="nav-subtitle">{{ 'THEME_MASONRY.TOOLS.DATE.MENU'|t }}</h4>
+    <h4 class="nav-subtitle">{{ 'THEME_PROJECTSPACE.TOOLS.DATE.MENU'|t }}</h4>
     <div class="tools-container grid-2">
       <div>
         <input placeholder="dd-mm-yyyy" id="start" name="start" autocomplete="off" data-toggle="datepicker" {% if params.start is not empty %}value="{{ params.start }}"{% endif %}>
@@ -144,7 +144,7 @@
     </div>
     <input type="hidden" id="redirect" name="redirect" value="true">
     <button type="submit">
-      <i class="fa fa-angle-double-right"></i> {{ 'THEME_MASONRY.TOOLS.SUBMIT'|t }}
+      <i class="fa fa-angle-double-right"></i> {{ 'THEME_PROJECTSPACE.TOOLS.SUBMIT'|t }}
     </button>
   </nav>
 </form>

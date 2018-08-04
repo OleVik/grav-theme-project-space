@@ -1,12 +1,12 @@
 name: Project Space
-version: 1.1.4
+version: 1.1.5
 description: Visualize projects in an organized manner, as notes on a board.
 icon: sticky-note
 author:
   name: Ole Vik
   email: git@olevik.net
 homepage: https://github.com/OleVik/grav-theme-project-space
-demo: http://demo.yoursite.com
+demo: https://olevik.me/staging/grav-skeleton-project-space
 keywords: grav, theme, project, projects, note, notes, visualize
 bugs: https://github.com/OleVik/grav-theme-project-space/issues
 readme: https://github.com/OleVik/grav-theme-project-space/blob/develop/README.md
@@ -35,8 +35,8 @@ form:
     categories:
       type: selectize
       allowEmptyOption: true
-      label: Categories
-      help: Sets the available categories
+      label: THEME_PROJECTSPACE.ADMIN.CATEGORIES.LABEL
+      help: THEME_PROJECTSPACE.ADMIN.CATEGORIES.HELP
       selectize:
         options:
           - text: Idea
@@ -51,7 +51,7 @@ form:
         type: commalist
     truncate:
       type: text
-      label: Truncate words
-      help: Limits the amount of words in each note to an integer or boolean state
+      label: THEME_PROJECTSPACE.ADMIN.TRUNCATE.LABEL
+      help: THEME_PROJECTSPACE.ADMIN.TRUNCATE.HELP
       default: 40
       novalidate: true

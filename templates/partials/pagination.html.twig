@@ -8,7 +8,7 @@
     <ul class="pagination">
         {% if current != 1 %}
         <li>
-            <a href="{{ url }}/page:1/limit:{{ limit }}">{{ 'THEME_MASONRY.BLOG.PAGINATION.FIRST'|t }}</a>
+            <a href="{{ url }}/page:1/limit:{{ limit }}">{{ 'THEME_PROJECTSPACE.BLOG.PAGINATION.FIRST'|t }}</a>
         </li>
         {% endif %}
         {% for i in 1..total %}
@@ -30,7 +30,7 @@
         {% endfor %}
         {% if current != total %}
         <li>
-            <a href="{{ url }}/page:{{ total }}/limit:{{ limit }}">{{ 'THEME_MASONRY.BLOG.PAGINATION.LAST'|t }}</a>
+            <a href="{{ url }}/page:{{ total }}/limit:{{ limit }}">{{ 'THEME_PROJECTSPACE.BLOG.PAGINATION.LAST'|t }}</a>
         </li>
         {% endif %}
     </ul>

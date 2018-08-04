@@ -1,5 +1,39 @@
 en:
-  THEME_MASONRY:
+  THEME_PROJECTSPACE:
+    ADMIN:
+      CATEGORIES:
+        LABEL: Categories
+        HELP: Sets the available categories
+      TRUNCATE:
+        LABEL: Truncate words
+        HELP: Limits the amount of words in each note, to an integer or boolean state for default (40)
+      SUBTITLE: Subtitle
+      STYLE: Style
+      HEADERIMAGE:
+        LABEL: Image for thumbnail and header
+        HELP: Sets the image to use as thumbnail and header
+      CATEGORY:
+        LABEL: Category
+        HELP: Sets the state of the project
+      TAGS:
+        LABEL: Tags
+        HELP: Applies tags to the project
+      COLOR:
+        LABEL: Background color
+        HELP: Sets the background color for the note
+        OPTIONS:
+          WHITE: White
+          RED: Red
+          ORANGE: Orange
+          YELLOW: Yellow
+          GREEN: Green
+          TEAL: Teal
+          BLUE: Blue
+          DARKBLUE: Dark Blue
+          PURPLE: Purple
+          PINK: Pink
+          BROWN: Brown
+          GRAY: Gray
     HOME: Home
     MENU:
       TITLE: Menu
@@ -47,55 +81,6 @@ en:
     EMPTY:
       TITLE: No projects found...
       CONTENT: Try changing the settings in the tools-menu, or visit another page
-    DISQUS:
-      NOSCRIPT: Please enable JavaScript to view the comments powered by Disqus.
     ERROR:
-      404: 404, Page Not Found
+      404: Page Not Found
 
-
-de:
-  THEME_MASONRY:
-    HOME: Startseite
-    MENU_TITLE: Menü
-    BLOG:
-      CONTINUE_READING: Weiterlesen
-      POST:
-        MORE:
-          AUTHOR: Mehr Beiträge
-          SPEC_AUTHOR: Mehr Beiträge von
-        SHARE: Beitrag teilen
-      PAGINATION:
-        OLDER: Ältere Beiträge
-        NEWER: Neuere Beiträge
-        PAGE:
-          PAGE: Seite
-          OF: von
-      SUBSCRIBE: Abonnieren
-    DISQUS:
-      NOSCRIPT: Bitte aktivieren Sie JavaScript um Disquis-Kommentare anschauen zu können.
-    ERROR:
-      404: Diese Seite existiert nicht (Fehler 404)
-      
-
-fr:
-  THEME_MASONRY:
-    HOME: Accueil
-    MENU_TITLE: Menu
-    BLOG:
-      CONTINUE_READING: Lire la suite
-      POST:
-        MORE:
-          AUTHOR: Plus de posts
-          SPEC_AUTHOR: Plus de posts de
-        SHARE: Partager ce post
-      PAGINATION:
-        OLDER: Posts plus anciens
-        NEWER: Posts plus récents
-        PAGE:
-          PAGE: Page
-          OF: de
-      SUBSCRIBE: S'abonner
-    DISQUS:
-      NOSCRIPT: Veuillez activer JavaScript pour afficher les commentaires Disquis.
-    ERROR:
-      404: 404, Page introuvable
