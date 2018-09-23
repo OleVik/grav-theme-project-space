@@ -2667,6 +2667,10 @@ svg:not(:root) {
     transition: all 0.3s ease; }
 
 .post-title a {
+  overflow-wrap: break-word;
+  overflow: visible;
+  word-break: break-word;
+  white-space: normal;
   text-decoration: none; }
   .post-title a:hover, .post-title a:active {
     color: #ed0677; }
