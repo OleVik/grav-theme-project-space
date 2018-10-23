@@ -133,6 +133,7 @@ You should now have all the theme files under
     /your/site/grav/user/themes/project-space
 
 # Dependencies
+
 - [Grav Core](https://github.com/getgrav/grav/releases/tag/1.4.5) ~1.4
 - [Quark-theme](https://github.com/getgrav/grav-theme-quark/releases/tag/1.0.3) ~1.0
 - [TaxonomyList-plugin](https://github.com/getgrav/grav-plugin-taxonomylist/releases/tag/1.3.2) ~1.3
@@ -141,7 +142,7 @@ You should now have all the theme files under
 
 ## Compiling CSS
 
-Use a SCSS-compiler, like [LibSass](https://github.com/sass/libsass), eg. [node-sass](https://github.com/sass/node-sass) and compiled `src/scss/screen.scss` to `css/screen.css` in the theme-folder. For example: `node-sass --watch --source-map true src/scss/screen.scss css/screen.css`.
+Use a SCSS-compiler, like [LibSass](https://github.com/sass/libsass), eg. [node-sass](https://github.com/sass/node-sass) and compiled `src/scss/screen.scss` to `css/screen.css` in the theme-folder. For example: `node-sass --watch --source-map true src/scss/screen.scss css/screen.css`. Requires Node-modules to be installed first.
 
 ## License
 

@@ -2024,6 +2024,10 @@ svg:not(:root) {
 	}
 }
 .post-title a {
+    overflow-wrap: break-word;
+    overflow: visible;
+    word-break: break-word;
+    white-space: normal;
 	text-decoration: none;
 	&:hover,
 	&:active {
