@@ -21,11 +21,12 @@
         <title>{% if header.title %}{{ header.title }} | {% endif %}{{ site.title }}</title>
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata:400|Roboto:400" />
         {% block stylesheets %}
-            {% do assets.add('theme://css/screen.css', 101) %}
-            {% do assets.add('user://themes/quark/css/line-awesome.min.css', 101) %}
-            {% do assets.add('theme://node_modules/multiple-select/multiple-select.css', 101) %}
-            {% do assets.add('theme://node_modules/@fengyuanchen/datepicker/dist/datepicker.min.css', 101) %}
-            {% do assets.add('theme://node_modules/animate.css/animate.min.css', 101) %}
+            {% do assets.addCss('theme://css/screen.css', 101) %}
+            {% do assets.addCss('user://themes/quark/css/line-awesome.min.css', 101) %}
+            {% do assets.addCss('theme://node_modules/multiple-select/multiple-select.css', 101) %}
+            {% do assets.addCss('theme://node_modules/@fengyuanchen/datepicker/dist/datepicker.min.css', 101) %}
+            {% do assets.addCss('theme://node_modules/animate.css/animate.min.css', 101) %}
+            {% do assets.addCss('theme://node_modules/paper-css/paper.min.css', {'priority': 101, 'loading': 'async', 'media': 'only print'}) %}
             {{ assets.css() }}
         {% endblock %}
         {% endblock head %}

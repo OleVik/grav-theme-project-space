@@ -1,3 +1,17 @@
+# v1.2.0
+##  23-10-2018
+
+1. [](#new)
+    * Print-styling
+2. [](#improved)
+    * Truncate-methods fallback for empty content
+
+# v1.1.7
+##  23-09-2018
+
+1. [](#bugfix)
+    * Word-wrap titles
+
 # v1.1.6
 ##  04-08-2018
 

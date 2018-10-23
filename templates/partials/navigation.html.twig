@@ -1,4 +1,4 @@
-<nav role="navigation">
+<nav role="navigation" class="no-print">
 	<ul class="navigation">
 	{% for page in pages.children %}
 		{% set current_page = (page.active or page.activeChild) ? 'nav-current' : '' %}

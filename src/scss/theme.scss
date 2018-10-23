@@ -754,7 +754,21 @@ input[data-toggle="datepicker"] + .datepicker-container {
 .hide {
   display: none;
 }
-
+@page {
+  size: A4;
+  margin: 0;
+}
+@media print {
+  html,
+  body,
+  .home-template .site-wrapper .content,
+  .post-template .site-wrapper .content {
+    background: #ffffff;
+  }
+  .no-print, .no-print * {
+    display: none !important;
+  }
+}
 
 /* Animation override */
 .animated {

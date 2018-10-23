@@ -153,7 +153,11 @@ class ProjectSpace extends Theme
             }
         }
         $params = '/' . implode('/', $output);
-        $location = $this->grav['page']->url(true) . $params;
+        if ($this->grav['config']->get('system.home.alias') == '/' . $this->grav['page']->slug()) {
+            $location = '/' . $this->grav['page']->slug() . $params;
+        } else {
+            $location = $this->grav['page']->url(true) . $params;
+        }
         if (isset($_GET['redirect']) && !empty($location)) {
             header('Location: ' . $location, true, 307);
             exit();

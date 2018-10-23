@@ -54,7 +54,7 @@
 {% else %}
     {% set truncate = false %}
 {% endif %}
-<aside class="read-next">
+<aside class="read-next no-print">
     {% if not page.isFirst %}
     <a class="read-next-story {% if page.nextSibling.header.image %}" style="background-image: url({{ page.nextSibling.media[page.nextSibling.header.image].url }}){% else %}no-cover{% endif %}" href="{{page.nextSibling.url}}">
         <section class="post">

@@ -57,6 +57,9 @@ class TruncateExtension extends \Twig_Extension
         if ($limit <= 0) {
             return $html;
         }
+        if (empty($html)) {
+            return false;
+        }
 
         $dom = $this->htmlToDomDocument($html);
 
@@ -108,6 +111,9 @@ class TruncateExtension extends \Twig_Extension
         if ($limit <= 0) {
             return $html;
         }
+        if (empty($html)) {
+            return false;
+        }
 
         $dom = $this->htmlToDomDocument($html);
 
@@ -143,6 +149,9 @@ class TruncateExtension extends \Twig_Extension
      */
     public function htmlToDomDocument($html)
     {
+        if (empty($html)) {
+            return false;
+        }
         // Transform multibyte entities which otherwise display incorrectly.
         $html = mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8');
 
