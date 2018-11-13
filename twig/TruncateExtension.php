@@ -1,10 +1,11 @@
 <?php
+
 namespace Grav\Theme;
 
-use DOMText;
 use DOMDocument;
-use DOMWordsIterator;
 use DOMLettersIterator;
+use DOMText;
+use DOMWordsIterator;
 
 /**
  * TruncateExtension
@@ -17,7 +18,7 @@ class TruncateExtension extends \Twig_Extension
     {
         return 'Truncate';
     }
-    
+
     /**
      * @return array Returns the list of filters supplied by this extension.
      */
@@ -41,15 +42,15 @@ class TruncateExtension extends \Twig_Extension
 
         return array(
             'truncate_letters' => $truncateWords,
-            'truncate_words'   => $truncateLetters,
+            'truncate_words' => $truncateLetters,
         );
     }
 
     /**
      * Safely truncates HTML by a given number of words.
-     * @param  string  $html     Input HTML.
-     * @param  integer $limit    Limit to how many words we preserve.
-     * @param  string  $ellipsis String to use as ellipsis (if any).
+     * @param  string $html Input HTML.
+     * @param  integer $limit Limit to how many words we preserve.
+     * @param  string $ellipsis String to use as ellipsis (if any).
      * @return string            Safe truncated HTML.
      */
     public function truncateWords($html, $limit = 0, $ellipsis = "")
@@ -94,49 +95,6 @@ class TruncateExtension extends \Twig_Extension
                 break;
             }
 
-        }
-
-        return $dom->saveHTML();
-    }
-
-    /**
-     * Safely truncates HTML by a given number of letters.
-     * @param  string  $html     Input HTML.
-     * @param  integer $limit    Limit to how many letters we preserve.
-     * @param  string  $ellipsis String to use as ellipsis (if any).
-     * @return string            Safe truncated HTML.
-     */
-    public function truncateLetters($html, $limit = 0, $ellipsis = "")
-    {
-        if ($limit <= 0) {
-            return $html;
-        }
-        if (empty($html)) {
-            return false;
-        }
-
-        $dom = $this->htmlToDomDocument($html);
-
-        // Grab the body of our DOM.
-        $body = $dom->getElementsByTagName("body")->item(0);
-
-        // Iterate over letters.
-        $letters = new DOMLettersIterator($body);
-        foreach ($letters as $letter) {
-
-            // If we have exceeded the limit, we want to delete the remainder of this document.
-            if ($letters->key() >= $limit) {
-
-                $currentText = $letters->currentTextPosition();
-                $currentText[0]->nodeValue = substr($currentText[0]->nodeValue, 0, $currentText[1] + 1);
-                self::removeProceedingNodes($currentText[0], $body);
-
-                if (!empty($ellipsis)) {
-                    self::insertEllipsis($currentText[0], $ellipsis);
-                }
-
-                break;
-            }
         }
 
         return $dom->saveHTML();
@@ -196,8 +154,8 @@ class TruncateExtension extends \Twig_Extension
 
     /**
      * Inserts an ellipsis
-     * @param  DOMNode|DOMElement $domNode  Element to insert after.
-     * @param  string             $ellipsis Text used to suffix our document.
+     * @param  DOMNode|DOMElement $domNode Element to insert after.
+     * @param  string $ellipsis Text used to suffix our document.
      * @return void
      */
     private static function insertEllipsis($domNode, $ellipsis)
@@ -218,5 +176,48 @@ class TruncateExtension extends \Twig_Extension
             // Append to current node
             $domNode->nodeValue = rtrim($domNode->nodeValue) . $ellipsis;
         }
+    }
+
+    /**
+     * Safely truncates HTML by a given number of letters.
+     * @param  string $html Input HTML.
+     * @param  integer $limit Limit to how many letters we preserve.
+     * @param  string $ellipsis String to use as ellipsis (if any).
+     * @return string            Safe truncated HTML.
+     */
+    public function truncateLetters($html, $limit = 0, $ellipsis = "")
+    {
+        if ($limit <= 0) {
+            return $html;
+        }
+        if (empty($html)) {
+            return false;
+        }
+
+        $dom = $this->htmlToDomDocument($html);
+
+        // Grab the body of our DOM.
+        $body = $dom->getElementsByTagName("body")->item(0);
+
+        // Iterate over letters.
+        $letters = new DOMLettersIterator($body);
+        foreach ($letters as $letter) {
+
+            // If we have exceeded the limit, we want to delete the remainder of this document.
+            if ($letters->key() >= $limit) {
+
+                $currentText = $letters->currentTextPosition();
+                $currentText[0]->nodeValue = substr($currentText[0]->nodeValue, 0, $currentText[1] + 1);
+                self::removeProceedingNodes($currentText[0], $body);
+
+                if (!empty($ellipsis)) {
+                    self::insertEllipsis($currentText[0], $ellipsis);
+                }
+
+                break;
+            }
+        }
+
+        return $dom->saveHTML();
     }
 }

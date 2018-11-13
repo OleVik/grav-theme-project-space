@@ -1,20 +1,22 @@
 {% if uri.param('category') is defined and uri.param('category') is not empty %}
-  {% set category = [] %}
-  {% for item in uri.param('category')|split(',') %}
-    {% set category = category|merge([item|url_decode]) %}
-  {% endfor %}
+    {% set category = [] %}
+    {% for item in uri.param('category')|split(',') %}
+        {% set category = category|merge([item|url_decode]) %}
+    {% endfor %}
 {% endif %}
+
 {% if uri.param('color') is defined and uri.param('color') is not empty %}
-  {% set color = [] %}
-  {% for item in uri.param('color')|split(',') %}
-    {% set color = color|merge([item|url_decode]) %}
-  {% endfor %}
+    {% set color = [] %}
+    {% for item in uri.param('color')|split(',') %}
+        {% set color = color|merge([item|url_decode]) %}
+    {% endfor %}
 {% endif %}
+
 {% if uri.param('tag') is defined and uri.param('tag') is not empty %}
-  {% set tag = [] %}
-  {% for item in uri.param('tag')|split(',') %}
-    {% set tag = tag|merge([item|url_decode]) %}
-  {% endfor %}
+    {% set tag = [] %}
+    {% for item in uri.param('tag')|split(',') %}
+        {% set tag = tag|merge([item|url_decode]) %}
+    {% endfor %}
 {% endif %}
 
 {% set params = {
@@ -31,120 +33,129 @@
 } %}
 
 {% if system.home.alias == '/' ~ page.slug %}
-  {% set action = base_url_absolute ~ '/' ~ page.slug %}
+    {% set action = base_url_absolute ~ '/' ~ page.slug %}
 {% else %}
-  {% set action = base_url_absolute ~ page.url %}
+    {% set action = base_url_absolute ~ page.url %}
 {% endif %}
 
 <form id="tools-handler" class="js-Pjax no-print" action="{{ action }}" method="GET">
-  <nav role="navigation">
-    <h4 class="nav-subtitle">{{ 'THEME_PROJECTSPACE.TOOLS.DISPLAY.MENU'|t }}</h4>
-    <div class="tools-container">
-      <ul class="menu-buttons">
-        <li>
-          <label>
-            <input type="radio" class="hide" name="display" value="" {% if params.display is empty %}checked{% endif %}>
-            <i title="{{ 'THEME_PROJECTSPACE.TOOLS.DISPLAY.BLOCKS'|t }} (default)" class="fa fa-cubes"></i>
-          <label>
-        </li>
-        <li>
-          <label>
-            <input type="radio" class="hide" name="display" value="list" {% if params.display == 'list' %}checked{% endif %}>
-            <i title="{{ 'THEME_PROJECTSPACE.TOOLS.DISPLAY.LIST'|t }}" class="fa fa-list-ol"></i>
-          <label>
-        </li>
-        <li>
-          <label>
-            <input type="radio" class="hide" name="display" value="category" {% if params.display == 'category' %}checked{% endif %}>
-            <i title="{{ 'THEME_PROJECTSPACE.TOOLS.DISPLAY.CATEGORY'|t }}" class="fa fa-list-alt"></i>
-          <label>
-        </li>
-        <li>
-          <label>
-            <input type="radio" class="hide" name="display" value="color" {% if params.display == 'color' %}checked{% endif %}>
-            <i title="{{ 'THEME_PROJECTSPACE.TOOLS.DISPLAY.COLOR'|t }}" class="fa fa-list"></i>
-          <label>
-        </li>
-      </ul>
-    </div>
-    <h4 class="nav-subtitle">{{ 'THEME_PROJECTSPACE.TOOLS.SORT.MENU'|t }}</h4>
-    <div class="tools-container grid-2">
-      <div>
-        <ul class="menu-buttons">
-          <li>
-            <label>
-              <input type="radio" class="hide" name="sort-by" value="title" {% if params.orderBy == 'title' %}checked{% endif %}>
-              <i title="{{ 'THEME_PROJECTSPACE.TOOLS.SORT.TITLE'|t }}" class="fa fa-font"></i>
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="radio" class="hide" name="sort-by" value="date" {% if params.orderBy == 'date' %}checked{% endif %}>
-              <i title="{{ 'THEME_PROJECTSPACE.TOOLS.SORT.DATE'|t }}" class="fa fa-calendar"></i>
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="radio" class="hide" name="sort-by" value="folder" {% if params.orderBy == 'folder' %}checked{% endif %}>
-              <i title="{{ 'THEME_PROJECTSPACE.TOOLS.SORT.FOLDER'|t }}" class="fa fa-folder"></i>
-            </label>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <ul class="menu-buttons">
-          <li>
-            <label>
-              <input type="radio" class="hide" name="sort-dir" value="asc" {% if params.orderDir == 'asc' %}checked{% endif %}>
-              <i title="{{ 'THEME_PROJECTSPACE.TOOLS.SORT.ASC'|t }}" class="fa fa-sort-asc"></i>
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="radio" class="hide" name="sort-dir" value="desc" {% if params.orderDir == 'desc' %}checked{% endif %}>
-              <i title="{{ 'THEME_PROJECTSPACE.TOOLS.SORT.DESC'|t }}" class="fa fa-sort-desc"></i>
-            </label>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <h4 class="nav-subtitle">Limit</h4>
-    <label for="limit">
-      <input type="number" id="limit" name="limit" min="1" max="25" placeholder="10" {% if params.limit is not empty %}value="{{ params.limit }}"{% endif %}>
-      <span class="help-text"></span>
-    </label>
-    <h4 class="nav-subtitle">{{ 'THEME_PROJECTSPACE.TOOLS.FILTER.MENU'|t }}</h4>
-    {% if taxonomylist %}
-    <select id="filter-category" name="category[]" class="filter" multiple="multiple">
-      {% for category in theme.categories %}
-        <option value="{{ category }}" {% if in_array_any([category], params.category) %}selected{% endif %}>{{ category }}</option>
-      {% endfor %}
-    </select>
-    <select id="filter-tag" name="tag[]" class="filter" multiple="multiple">
-      {% for tag, count in taxonomylist.get.tag %}
-        <option value="{{ tag }}" {% if in_array_any([tag], params.tag) %}selected{% endif %}>{{ tag }}</option>
-      {% endfor %}
-    </select>
-    {% endif %}
-    <div class="filter-color-container">
-      <select id="filter-color" name="color[]" class="filter" multiple="multiple">
-        {% for key, name in project_colors %}
-          <option value="{{ key }}" {% if in_array_any([key], params.color) %}selected{% endif %}>{{ name }}</option>
-        {% endfor %}
-      </select>
-    </div>
-    <h4 class="nav-subtitle">{{ 'THEME_PROJECTSPACE.TOOLS.DATE.MENU'|t }}</h4>
-    <div class="tools-container grid-2">
-      <div>
-        <input placeholder="dd-mm-yyyy" id="start" name="start" autocomplete="off" data-toggle="datepicker" {% if params.start is not empty %}value="{{ params.start }}"{% endif %}>
-      </div>
-      <div>
-        <input placeholder="dd-mm-yyyy" id="end" name="end" autocomplete="off" data-toggle="datepicker" {% if params.end is not empty %}value="{{ params.end }}"{% endif %}>
-      </div>
-    </div>
-    <input type="hidden" id="redirect" name="redirect" value="true">
-    <button type="submit">
-      <i class="fa fa-angle-double-right"></i> {{ 'THEME_PROJECTSPACE.TOOLS.SUBMIT'|t }}
-    </button>
-  </nav>
+    <nav role="navigation">
+        <h4 class="nav-subtitle">{{ 'THEME_PROJECTSPACE.TOOLS.DISPLAY.MENU'|t }}</h4>
+        <div class="tools-container">
+            <ul class="menu-buttons">
+                <li>
+                    <label>
+                        <input type="radio" class="hide" name="display" value="" {% if params.display is empty %}checked{% endif %}>
+                        <i title="{{ 'THEME_PROJECTSPACE.TOOLS.DISPLAY.BLOCKS'|t }} (default)" class="fa fa-cubes"></i>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" class="hide" name="display" value="list" {% if params.display == 'list' %}checked{% endif %}>
+                        <i title="{{ 'THEME_PROJECTSPACE.TOOLS.DISPLAY.LIST'|t }}" class="fa fa-list-ol"></i>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" class="hide" name="display" value="category" {% if params.display == 'category' %}checked{% endif %}>
+                        <i title="{{ 'THEME_PROJECTSPACE.TOOLS.DISPLAY.CATEGORY'|t }}" class="fa fa-list-alt"></i>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" class="hide" name="display" value="color" {% if params.display == 'color' %}checked{% endif %}>
+                        <i title="{{ 'THEME_PROJECTSPACE.TOOLS.DISPLAY.COLOR'|t }}" class="fa fa-list"></i>
+                    </label>
+                </li>
+            </ul>
+        </div>
+        <h4 class="nav-subtitle">{{ 'THEME_PROJECTSPACE.TOOLS.SORT.MENU'|t }}</h4>
+        <div class="tools-container grid-2">
+            <div>
+                <ul class="menu-buttons">
+                    <li>
+                        <label>
+                            <input type="radio" class="hide" name="sort-by" value="title" {% if params.orderBy == 'title' %}checked{% endif %}>
+                            <i title="{{ 'THEME_PROJECTSPACE.TOOLS.SORT.TITLE'|t }}" class="fa fa-font"></i>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" class="hide" name="sort-by" value="date" {% if params.orderBy == 'date' %}checked{% endif %}>
+                            <i title="{{ 'THEME_PROJECTSPACE.TOOLS.SORT.DATE'|t }}" class="fa fa-calendar"></i>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" class="hide" name="sort-by" value="folder" {% if params.orderBy == 'folder' %}checked{% endif %}>
+                            <i title="{{ 'THEME_PROJECTSPACE.TOOLS.SORT.FOLDER'|t }}" class="fa fa-folder"></i>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul class="menu-buttons">
+                    <li>
+                        <label>
+                            <input type="radio" class="hide" name="sort-dir" value="asc" {% if params.orderDir == 'asc' %}checked{% endif %}>
+                            <i title="{{ 'THEME_PROJECTSPACE.TOOLS.SORT.ASC'|t }}" class="fa fa-sort-asc"></i>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" class="hide" name="sort-dir" value="desc" {% if params.orderDir == 'desc' %}checked{% endif %}>
+                            <i title="{{ 'THEME_PROJECTSPACE.TOOLS.SORT.DESC'|t }}" class="fa fa-sort-desc"></i>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <h4 class="nav-subtitle">Limit</h4>
+        <label for="limit">
+            <input type="number" id="limit" name="limit" min="1" max="25" placeholder="10"
+                   {% if params.limit is not empty %}value="{{ params.limit }}"{% endif %}>
+            <span class="help-text"></span>
+        </label>
+
+        <h4 class="nav-subtitle">{{ 'THEME_PROJECTSPACE.TOOLS.FILTER.MENU'|t }}</h4>
+        {% if taxonomylist %}
+            <select id="filter-category" name="category[]" class="filter" multiple="multiple">
+                {% for category in theme.categories %}
+                    <option value="{{ category }}" {% if in_array_any([category], params.category) %}selected{% endif %}>{{ category }}</option>
+                {% endfor %}
+            </select>
+            <select id="filter-tag" name="tag[]" class="filter" multiple="multiple">
+                {% for tag, count in taxonomylist.get.tag %}
+                    <option value="{{ tag }}" {% if in_array_any([tag], params.tag) %}selected{% endif %}>{{ tag }}</option>
+                {% endfor %}
+            </select>
+        {% endif %}
+        <div class="filter-color-container">
+            <select id="filter-color" name="color[]" class="filter" multiple="multiple">
+                {% for key, name in project_colors %}
+                    <option value="{{ key }}" {% if in_array_any([key], params.color) %}selected{% endif %}>{{ name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <h4 class="nav-subtitle">{{ 'THEME_PROJECTSPACE.TOOLS.DATE.MENU'|t }}</h4>
+        <div class="tools-container grid-2">
+            <div>
+                <input placeholder="dd-mm-yyyy" id="start" name="start" autocomplete="off" data-toggle="datepicker"
+                       {% if params.start is not empty %}value="{{ params.start }}"{% endif %}
+                >
+            </div>
+            <div>
+                <input placeholder="dd-mm-yyyy" id="end" name="end" autocomplete="off" data-toggle="datepicker"
+                       {% if params.end is not empty %}value="{{ params.end }}"{% endif %}
+                >
+            </div>
+        </div>
+        <input type="hidden" id="redirect" name="redirect" value="true">
+        <button type="submit">
+            <i class="fa fa-angle-double-right"></i> {{ 'THEME_PROJECTSPACE.TOOLS.SUBMIT'|t }}
+        </button>
+        </h4>
+    </nav>
 </form>

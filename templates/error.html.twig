@@ -6,16 +6,16 @@
 
 {% block content %}
 
-{% include 'partials/header.html.twig' %}
+    {% include 'partials/header.html.twig' %}
 
-<main class="content" role="main">
-    <article class="post page">
-        <header class="post-header">
-            {% include 'partials/breadcrumbs.html.twig' %}
-            <h1 class="post-title">{{ 'THEME_PROJECTSPACE.ERROR.404'|t }}</h1>
-        </header>
-    </article>
-</main>
+    <main class="content" role="main">
+        <article class="post page">
+            <header class="post-header">
+                {% include 'partials/breadcrumbs.html.twig' %}
+                <h1 class="post-title">{{ 'THEME_PROJECTSPACE.ERROR.404'|t }}</h1>
+            </header>
+        </article>
+    </main>
 
 {% endblock %}
 

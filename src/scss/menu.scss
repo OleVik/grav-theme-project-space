@@ -4,9 +4,9 @@
 }
 
 .show-menu {
-    
+
     display: none;
-    
+
     &:checked ~ {
         .nav {
             opacity: 1;
@@ -18,8 +18,7 @@
             //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
             transform: translate3D(0, 0, 0);
         }
-        .site-wrapper
-        {
+        .site-wrapper {
             overflow-x: hidden;
             -webkit-transform: translate3D(-240px, 0, 0);
             -ms-transform: translate3D(-240px, 0, 0);

@@ -2,141 +2,141 @@
 
 {% block content %}
 
-{% block header %}
-    {% include 'partials/header.html.twig' %}
-{% endblock %}
+    {% block header %}
+        {% include 'partials/header.html.twig' %}
+    {% endblock %}
 
-{% set collection = page.evaluate([{'@page.children': '/' ~ page.slug}]) %}
+    {% set collection = page.evaluate([{'@page.children': '/' ~ page.slug}]) %}
 
-{% set display = uri.param('display')|default('blocks') %}
+    {% set display = uri.param('display')|default('blocks') %}
 
-{% set start = uri.param('start')|default(0|date("d-m-Y")) %}
-{% set end = uri.param('end')|default(9999999999|date("d-m-Y")) %}
-{% set collection = collection.dateRange(start, end) %}
+    {% set start = uri.param('start')|default(0|date("d-m-Y")) %}
+    {% set end = uri.param('end')|default(9999999999|date("d-m-Y")) %}
+    {% set collection = collection.dateRange(start, end) %}
 
-{% set orderBy = uri.param('sort-by')|default('date') %}
-{% set orderDir = uri.param('sort-dir')|default('desc') %}
-{% set collection = collection.order(orderBy, orderDir) %}
+    {% set orderBy = uri.param('sort-by')|default('date') %}
+    {% set orderDir = uri.param('sort-dir')|default('desc') %}
+    {% set collection = collection.order(orderBy, orderDir) %}
 
-{% set limit = uri.param('limit')|default(10) %}
-{% set currentPage = uri.param('page')|default(1) %}
+    {% set limit = uri.param('limit')|default(10) %}
+    {% set currentPage = uri.param('page')|default(1) %}
 
-{% set posts = collection %}
+    {% set posts = collection %}
 
-{% if uri.param('category') is defined and uri.param('category') is not empty %}
-    {% set category = [] %}
-    {% for item in uri.param('category')|split(',') %}
-        {% set category = category|merge([item|url_decode]) %}
-    {% endfor %}
-    {% set posts_category = [] %}
-    {% for post in posts %}
-        {% if post.taxonomy.category is iterable and in_array_any(post.taxonomy.category, category) %}
-            {% set posts_category = posts_category|merge([post]) %}
-        {% endif %}
-    {% endfor %}
-    {% set posts = posts_category %}
-{% endif %}
+    {% if uri.param('category') is defined and uri.param('category') is not empty %}
+        {% set category = [] %}
+        {% for item in uri.param('category')|split(',') %}
+            {% set category = category|merge([item|url_decode]) %}
+        {% endfor %}
+        {% set posts_category = [] %}
+        {% for post in posts %}
+            {% if post.taxonomy.category is iterable and in_array_any(post.taxonomy.category, category) %}
+                {% set posts_category = posts_category|merge([post]) %}
+            {% endif %}
+        {% endfor %}
+        {% set posts = posts_category %}
+    {% endif %}
 
-{% if uri.param('color') is defined and uri.param('color') is not empty %}
-    {% set color = [] %}
-    {% for item in uri.param('color')|split(',') %}
-        {% set color = color|merge([item|url_decode]) %}
-    {% endfor %}
-    {% set posts_color = [] %}
-    {% for post in posts %}
-        {% if in_array_any([post.header.color], color) %}
-            {% set posts_color = posts_color|merge([post]) %}
-        {% endif %}
-    {% endfor %}
-    {% set posts = posts_color %}
-{% endif %}
+    {% if uri.param('color') is defined and uri.param('color') is not empty %}
+        {% set color = [] %}
+        {% for item in uri.param('color')|split(',') %}
+            {% set color = color|merge([item|url_decode]) %}
+        {% endfor %}
+        {% set posts_color = [] %}
+        {% for post in posts %}
+            {% if in_array_any([post.header.color], color) %}
+                {% set posts_color = posts_color|merge([post]) %}
+            {% endif %}
+        {% endfor %}
+        {% set posts = posts_color %}
+    {% endif %}
 
-{% if uri.param('tag') is defined and uri.param('tag') is not empty %}
-    {% set tag = [] %}
-    {% for item in uri.param('tag')|split(',') %}
-        {% set tag = tag|merge([item|url_decode]) %}
-    {% endfor %}
-    {% set posts_tag = [] %}
-    {% for post in posts %}
-        {% if post.taxonomy.tag is iterable and in_array_any(post.taxonomy.tag, tag) %}
-            {% set posts_tag = posts_tag|merge([post]) %}
-        {% endif %}
-    {% endfor %}
-    {% set posts = posts_tag %}
-{% endif %}
+    {% if uri.param('tag') is defined and uri.param('tag') is not empty %}
+        {% set tag = [] %}
+        {% for item in uri.param('tag')|split(',') %}
+            {% set tag = tag|merge([item|url_decode]) %}
+        {% endfor %}
+        {% set posts_tag = [] %}
+        {% for post in posts %}
+            {% if post.taxonomy.tag is iterable and in_array_any(post.taxonomy.tag, tag) %}
+                {% set posts_tag = posts_tag|merge([post]) %}
+            {% endif %}
+        {% endfor %}
+        {% set posts = posts_tag %}
+    {% endif %}
 
-{% if page.header.truncate is defined %}
-    {% set truncate = page.header.truncate %}
-{% elseif config.themes['project-space'].truncate is defined %}
-    {% set truncate = config.themes['project-space'].truncate %}
-{% else %}
-    {% set truncate = false %}
-{% endif %}
+    {% if page.header.truncate is defined %}
+        {% set truncate = page.header.truncate %}
+    {% elseif config.themes['project-space'].truncate is defined %}
+        {% set truncate = config.themes['project-space'].truncate %}
+    {% else %}
+        {% set truncate = false %}
+    {% endif %}
 
-<main id="content" class="content js-Pjax-child" role="main">
-    <div class="wrapper">
-        {% if posts|length > 0 %}
-            {% if currentPage == 1 %}
-                {% set pageOffset = 0 %}
+    <main id="content" class="content js-Pjax-child" role="main">
+        <div class="wrapper">
+            {% if posts|length > 0 %}
+                {% if currentPage == 1 %}
+                    {% set pageOffset = 0 %}
+                {% else %}
+                    {% set pageOffset = (currentPage - 1) * limit %}
+                {% endif %}
+                {% if display == 'blocks' %}
+                    <section class="masonry">
+                        {% for post in posts[pageOffset:limit] %}
+                            {% include 'partials/article.html.twig' with {'truncate': truncate} %}
+                        {% endfor %}
+                    </section>
+                {% elseif display == 'list' %}
+                    <section class="list">
+                        {% for post in posts[pageOffset:limit] %}
+                            {% include 'partials/article.html.twig' with {'truncate': truncate} %}
+                        {% endfor %}
+                    </section>
+                {% elseif display == 'category' %}
+                    <section class="list">
+                        {% for category in site.categories %}
+                            {% set posts_category = [] %}
+                            {% for post in posts[pageOffset:limit] if post.header.taxonomy.category == category %}
+                                {% set posts_category = posts_category|merge([post]) %}
+                            {% endfor %}
+                            {% if posts_category|length > 0 %}
+                                <h2>
+                                    <a href="{{ page.url }}/category:{{ category }}">{{ category }}</a>
+                                </h2>
+                                {% for post in posts_category %}
+                                    {% include 'partials/article.html.twig' with {'truncate': truncate} %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    </section>
+                {% elseif display == 'color' %}
+                    <section class="list">
+                        {% for key, name in project_colors %}
+                            {% set posts_color = [] %}
+                            {% for post in posts[pageOffset:limit] if post.header.color == key %}
+                                {% set posts_color = posts_color|merge([post]) %}
+                            {% endfor %}
+                            {% if posts_color|length > 0 %}
+                                <h2>
+                                    <a href="{{ page.url }}/color:{{ key }}">{{ name }}</a>
+                                </h2>
+                                {% for post in posts_color %}
+                                    {% include 'partials/article.html.twig' with {'truncate': truncate} %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    </section>
+                {% endif %}
+                </section>
             {% else %}
-                {% set pageOffset = (currentPage - 1) * limit %}
+                <section class="post-content inner">
+                    <h1>{{ 'THEME_PROJECTSPACE.EMPTY.TITLE'|t }}</h1>
+                    <p>{{ 'THEME_PROJECTSPACE.EMPTY.CONTENT'|t }}.</p>
+                </section>
             {% endif %}
-            {% if display == 'blocks' %}
-            <section class="masonry">
-                {% for post in posts[pageOffset:limit] %}
-                    {% include 'partials/article.html.twig' with {'truncate': truncate} %}
-                {% endfor %}
-            </section>
-            {% elseif display == 'list' %}
-            <section class="list">
-                {% for post in posts[pageOffset:limit] %}
-                    {% include 'partials/article.html.twig' with {'truncate': truncate} %}
-                {% endfor %}
-            </section>
-            {% elseif display == 'category' %}
-            <section class="list">
-                {% for category in site.categories %}
-                    {% set posts_category = [] %}
-                    {% for post in posts[pageOffset:limit] if post.header.taxonomy.category == category %}
-                        {% set posts_category = posts_category|merge([post]) %}
-                    {% endfor %}
-                    {% if posts_category|length > 0%}
-                        <h2>
-                            <a href="{{ page.url }}/category:{{ category }}">{{ category }}</a>
-                        </h2>
-                        {% for post in posts_category %}
-                            {% include 'partials/article.html.twig' with {'truncate': truncate} %}
-                        {% endfor %}
-                    {% endif %}
-                {% endfor %}
-            </section>
-            {% elseif display == 'color' %}
-            <section class="list">
-                {% for key, name in project_colors %}
-                    {% set posts_color = [] %}
-                    {% for post in posts[pageOffset:limit] if post.header.color == key %}
-                        {% set posts_color = posts_color|merge([post]) %}
-                    {% endfor %}
-                    {% if posts_color|length > 0%}
-                        <h2>
-                            <a href="{{ page.url }}/color:{{ key }}">{{ name }}</a>
-                        </h2>
-                        {% for post in posts_color %}
-                            {% include 'partials/article.html.twig' with {'truncate': truncate} %}
-                        {% endfor %}
-                    {% endif %}
-                {% endfor %}
-            </section>
-            {% endif %}
-            </section>
-        {% else %}
-        <section class="post-content inner">
-            <h1>{{ 'THEME_PROJECTSPACE.EMPTY.TITLE'|t }}</h1>
-            <p>{{ 'THEME_PROJECTSPACE.EMPTY.CONTENT'|t }}.</p>
-        </section>
-        {% endif %}
-    </div>
-</main>
-{% include 'partials/pagination.html.twig' with {'path': page.url, 'currentPage': currentPage, 'pageCount': (posts|length / limit)|round(0, 'ceil'), 'limit': limit} %}
+        </div>
+    </main>
+    {% include 'partials/pagination.html.twig' with {'path': page.url, 'currentPage': currentPage, 'pageCount': (posts|length / limit)|round(0, 'ceil'), 'limit': limit} %}
 
 {% endblock %}

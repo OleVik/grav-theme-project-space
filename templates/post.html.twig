@@ -6,72 +6,85 @@
 
 {% block content %}
 
-<main class="content" role="main">
-    <article class="post">
-        <header class="post-header">
-            <h1 class="post-title">{{page.title}}</h1>
-            {% if page.header.subtitle %}
-            <h2 class="post-subtitle">{{ page.header.subtitle }}</h2>
-            {% endif %}
-            <section class="post-meta">
-                {% include 'partials/breadcrumbs.html.twig' %}
-                <time class="post-date" datetime="{{ page.date | date(site.date_short) }}">{{ page.date | date(site.date_long) }}</time>
-                {% if page.taxonomy.category[0] is defined and page.taxonomy.category[0] is not empty %}
-                    <a href="{{ base_url }}/category{{ config.system.param_sep }}{{ page.taxonomy.category[0] }}" class="post-meta-category">{{ page.taxonomy.category[0]|upper }}</a>
+    <main class="content" role="main">
+        <article class="post">
+            <header class="post-header">
+                <h1 class="post-title">{{ page.title }}</h1>
+                {% if page.header.subtitle %}
+                    <h2 class="post-subtitle">{{ page.header.subtitle }}</h2>
                 {% endif %}
-                {% if page.taxonomy.tag|length > 0 %}
-                &nbsp;{% for tag in page.taxonomy.tag %}<span class="post-tag-{{tag}}"><a href="{{ base_url }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a></span>{%if not loop.last %}, {% endif %}{% endfor %}
-                {% endif %}
-            </section>
-        </header>
-
-        <section class="post-content">
-            {{ content }}
-        </section>
-
-        <footer class="post-footer">
-            {%if site.author %}
-                {%if site.author.image %}
-                    <figure class="author-image">
-                        <a class="img" href="{{base_url}}" style="background-image: url({{ theme_url }}/images/{{ site.author.image }})">
-                            <span class="hidden">{{site.author.name}}'s Picture</span>
+                <section class="post-meta">
+                    {% include 'partials/breadcrumbs.html.twig' %}
+                    <time class="post-date" datetime="{{ page.date | date(site.date_short) }}">{{ page.date | date(site.date_long) }}</time>
+                    {% if page.taxonomy.category[0] is defined and page.taxonomy.category[0] is not empty %}
+                        <a href="{{ base_url }}/category{{ config.system.param_sep }}{{ page.taxonomy.category[0] }}" class="post-meta-category">
+                            {{ page.taxonomy.category[0]|upper }}
                         </a>
-                    </figure>
+                    {% endif %}
+                    {% if page.taxonomy.tag|length > 0 %}
+                        &nbsp;{% for tag in page.taxonomy.tag %}
+                        <span class="post-tag-{{ tag }}">
+                            <a href="{{ base_url }}/tag{{ config.system.param_sep }}{{ tag }}">
+                                {{ tag }}
+                            </a>
+                        </span>
+                        {% if not loop.last %}, {% endif %}{% endfor %}
+                    {% endif %}
+                </section>
+            </header>
+
+            <section class="post-content">
+                {{ content }}
+            </section>
+
+            <footer class="post-footer">
+                {% if site.author %}
+                    {% if site.author.image %}
+                        <figure class="author-image">
+                            <a class="img" href="{{ base_url }}" style="background-image: url({{ theme_url }}/images/{{ site.author.image }})">
+                                <span class="hidden">{{ site.author.name }}'s Picture</span>
+                            </a>
+                        </figure>
+                    {% endif %}
                 {% endif %}
-            {% endif %}
-           {% if config.plugins.comments.enabled %}
-              {% include 'partials/comments.html.twig' with {'page': page} %}
-           {% endif %}
-        </footer>
+                {% if config.plugins.comments.enabled %}
+                    {% include 'partials/comments.html.twig' with {'page': page} %}
+                {% endif %}
+            </footer>
 
-    </article>
-</main>
+        </article>
+    </main>
 
-{% if page.header.truncate is defined %}
-    {% set truncate = page.header.truncate %}
-{% elseif config.themes['project-space'].truncate is defined %}
-    {% set truncate = config.themes['project-space'].truncate %}
-{% else %}
-    {% set truncate = false %}
-{% endif %}
-<aside class="read-next no-print">
-    {% if not page.isFirst %}
-    <a class="read-next-story {% if page.nextSibling.header.image %}" style="background-image: url({{ page.nextSibling.media[page.nextSibling.header.image].url }}){% else %}no-cover{% endif %}" href="{{page.nextSibling.url}}">
-        <section class="post">
-            <h2>{{page.nextSibling.title}}</h2>
-            <p>{{ page.nextSibling.content|truncate_words(truncate) }}</p>
-        </section>
-    </a>
+    {% if page.header.truncate is defined %}
+        {% set truncate = page.header.truncate %}
+    {% elseif config.themes['project-space'].truncate is defined %}
+        {% set truncate = config.themes['project-space'].truncate %}
+    {% else %}
+        {% set truncate = false %}
     {% endif %}
-    {% if not page.isLast %}
-    <a class="read-next-story prev {% if page.prevSibling.header.image %}" style="background-image: url({{ page.prevSibling.media[page.prevSibling.header.image].url }}){% else %}no-cover{% endif %}" href="{{page.prevSibling.url}}">
-        <section class="post">
-            <h2>{{page.prevSibling.title}}</h2>
-            <p>{{ page.prevSibling.content|truncate_words(truncate) }}</p>
-        </section>
-    </a>
-    {% endif %}
-</aside>
+
+    <aside class="read-next no-print">
+        {% if not page.isFirst %}
+            <a class="read-next-story {% if page.nextSibling.header.image %}"
+               style="background-image: url({{ page.nextSibling.media[page.nextSibling.header.image].url }}){% else %}no-cover{% endif %}"
+               href="{{ page.nextSibling.url }}">
+                <section class="post">
+                    <h2>{{ page.nextSibling.title }}</h2>
+                    <p>{{ page.nextSibling.content|truncate_words(truncate) }}</p>
+                </section>
+            </a>
+        {% endif %}
+        {% if not page.isLast %}
+            <a class="read-next-story prev {% if page.prevSibling.header.image %}"
+               style="background-image: url({{ page.prevSibling.media[page.prevSibling.header.image].url }}){% else %}no-cover{% endif %}"
+               href="{{ page.prevSibling.url }}">
+                <section class="post">
+                    <h2>{{ page.prevSibling.title }}</h2>
+                    <p>{{ page.prevSibling.content|truncate_words(truncate) }}</p>
+                </section>
+            </a>
+        {% endif %}
+    </aside>
 
 
 {% endblock %}

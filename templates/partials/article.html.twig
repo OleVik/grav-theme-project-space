@@ -14,37 +14,38 @@
         </h3>
     </header>
     <section class="post-excerpt" itemprop="description">
-    {% if truncate is defined and truncate is not sameas(true) %}
-        <p>{{ post.content|truncate_words(truncate) }}</p>
-    {% elseif truncate is defined and truncate >= 1 %}
-        <p>{{ post.content|truncate_words(20) }}</p>
-    {% else %}
-        <p>{{ post.content }}</p>
-    {% endif %}
+        {% if truncate is defined and truncate is not sameas(true) %}
+            <p>{{ post.content|truncate_words(truncate) }}</p>
+        {% elseif truncate is defined and truncate >= 1 %}
+            <p>{{ post.content|truncate_words(20) }}</p>
+        {% else %}
+            <p>{{ post.content }}</p>
+        {% endif %}
     </section>
     <footer class="post-meta">
         <span class="post-category">
             <b>
                 {% if system.home.alias == '/' ~ page.slug %}
-                <a href="{{ '/' ~ page.slug }}/category{{ config.system.param_sep }}{{ post.taxonomy.category[0] }}">{{ post.taxonomy.category[0] }}</a>
+                    <a href="{{ '/' ~ page.slug }}/category{{ config.system.param_sep }}{{ post.taxonomy.category[0] }}">{{ post.taxonomy.category[0] }}</a>
                 {% else %}
-                <a href="{{ page.route }}/category{{ config.system.param_sep }}{{ post.taxonomy.category[0] }}">{{ post.taxonomy.category[0] }}</a>
+                    <a href="{{ page.route }}/category{{ config.system.param_sep }}{{ post.taxonomy.category[0] }}">{{ post.taxonomy.category[0] }}</a>
                 {% endif %}
             </b>
         </span>
         {% if post.taxonomy.tag|length > 0 %}
             {% for tag in post.taxonomy.tag[0:3] %}
                 {% spaceless %}
-                <span class="post-tag">
+                    <span class="post-tag">
                     {% if system.home.alias == '/' ~ page.slug %}
-                    <a href="{{ '/' ~ page.slug }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a>
+                        <a href="{{ '/' ~ page.slug }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a>
                     {% else %}
-                    <a href="{{ page.route }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a>
+                        <a href="{{ page.route }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a>
                     {% endif %}
-                </span>{%if not loop.last %}, {% endif %}
+                    </span>{% if not loop.last %}, {% endif %}
                 {% endspaceless %}
             {% endfor %}
         {% endif %}
-        <time class="post-date" datetime="{{ post.modified | date(long_date) }}" title="Created: {{ post.date | date(long_date) }}, edited: {{ post.modified | date(long_date) }}">{{ post.date|date(long_date) }}</time>
+        <time class="post-date" datetime="{{ post.modified | date(long_date) }}"
+              title="Created: {{ post.date | date(long_date) }}, edited: {{ post.modified | date(long_date) }}">{{ post.date|date(long_date) }}</time>
     </footer>
 </article>

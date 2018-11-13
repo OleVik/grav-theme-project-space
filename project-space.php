@@ -1,15 +1,16 @@
 <?php
+
 namespace Grav\Theme;
 
 use Grav\Common\Grav;
-use Grav\Common\Theme;
-use Grav\Common\Uri;
 use Grav\Common\Page\Page;
+use Grav\Common\Theme;
 use Grav\Common\Theme\Event;
+use Grav\Common\Uri;
+use Grav\Plugin\Taxonomylist;
 
 require __DIR__ . '/vendor/autoload.php';
 require Grav::instance()['locator']->findResource('user://plugins/taxonomylist/classes/taxonomylist.php', true);
-use Grav\Plugin\Taxonomylist;
 
 /**
  * Project Space Class
@@ -55,7 +56,7 @@ class ProjectSpace extends Theme
 
     /**
      * Initialize plugin and subsequent events
-     * 
+     *
      * @return array
      */
     public static function getSubscribedEvents()
@@ -97,7 +98,7 @@ class ProjectSpace extends Theme
 
     /**
      * Register events and route with Grav
-     * 
+     *
      * @return void
      */
     public function onThemeInitialized()
@@ -120,7 +121,7 @@ class ProjectSpace extends Theme
 
     /**
      * Push styles to Admin-plugin via Assets Manager
-     * 
+     *
      * @return void
      */
     public function onAdminPageInitialized()
@@ -130,7 +131,7 @@ class ProjectSpace extends Theme
 
     /**
      * Logic for handling tools-menu
-     * 
+     *
      * @return void
      */
     public function onPageInitialized()
@@ -166,7 +167,7 @@ class ProjectSpace extends Theme
 
     /**
      * Add Twig variables
-     * 
+     *
      * @return array Colors
      */
     public function addTwigVars()
@@ -192,11 +193,11 @@ class ProjectSpace extends Theme
     /**
      * Check if any needles exist in haystack
      *
-     * @param array $needles  Values to search for
+     * @param array $needles Values to search for
      * @param array $haystack Values to match against
-     * 
+     *
      * @return boolean
-     * 
+     *
      * @see https://stackoverflow.com/a/11040612/603387
      */
     public function inArrayAny($needles, $haystack)
