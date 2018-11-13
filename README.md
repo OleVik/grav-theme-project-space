@@ -4,13 +4,17 @@
 
 ## Description
 
-Visualize projects in an organized manner, as notes on a board. Projects can be categorized, color-coded and tagged to be easily identified, and displayed in a variety of ways with filtering and sorting.
+Visualize projects in an organized manner, as notes on a board. <br>
+Projects can be categorized, color-coded and tagged to be easily identified, and displayed in a variety of ways with filtering and sorting.
 
-The Project Space theme is responsive, and its use of JavaScript is minimal and only as progressive enhancements. The theme is designed by the [Graceful degradation](https://developer.mozilla.org/en-US/docs/Glossary/Graceful_degradation) methodology, wherein JavaScript is not necessary for the site to function. Scripts include [PJAX](https://github.com/MoOx/pjax), [DatePicker](https://github.com/fengyuanchen/datepicker) for calendar, and [Multiple Select](https://github.com/wenzhixin/multiple-select/) for dropdowns. 
+The Project Space theme is responsive, and its use of JavaScript is minimal and only as progressive enhancements. <br>
+The theme is designed by the [Graceful degradation](https://developer.mozilla.org/en-US/docs/Glossary/Graceful_degradation) methodology, wherein JavaScript is not necessary for the site to function. <br> 
+Scripts include [PJAX](https://github.com/MoOx/pjax), [DatePicker](https://github.com/fengyuanchen/datepicker) for calendar, and [Multiple Select](https://github.com/wenzhixin/multiple-select/) for dropdowns. 
 
 ## Usage
 
-Create a folder in /user/pages that will store your project-notes, like /projects. In this folder, create a `default.md`-file with the following content:
+Create a folder in /user/pages that will store your project-notes, like /projects. 
+In this folder, create a `default.md`-file with the following content:
 
 ```
 ---
