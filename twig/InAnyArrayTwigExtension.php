@@ -7,13 +7,16 @@ class InAnyArrayTwigExtension extends \Twig_Extension
     {
         return 'inArrayAny';
     }
+
     public function getFunctions()
     {
         return [
             new \Twig_SimpleFunction('in_array_any', [$this, 'inArrayAny'])
         ];
     }
-    public function inArrayAny($needles, $haystack) {
+
+    public function inArrayAny($needles, $haystack)
+    {
         return !!array_intersect($needles, $haystack);
     }
 }

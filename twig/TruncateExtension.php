@@ -17,7 +17,7 @@ class TruncateExtension extends \Twig_Extension
     {
         return 'Truncate';
     }
-    
+
     /**
      * @return array Returns the list of filters supplied by this extension.
      */
