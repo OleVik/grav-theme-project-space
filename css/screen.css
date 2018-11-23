@@ -2489,7 +2489,7 @@ iframe {
     font-size: 0.85em; }
   .post-content img {
     padding: 0;
-    width: calc(100% +32px);
+    width: calc(100% + 32px);
     min-width: 0;
     max-width: 112%; }
   .author-meta li {

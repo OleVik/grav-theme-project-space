@@ -14,3 +14,4 @@ node_modules/
 !node_modules/multiple-select/multiple-select.js*
 !node_modules/@fengyuanchen/datepicker/dist/datepicker.min.css*
 !node_modules/@fengyuanchen/datepicker/dist/datepicker.min.js*
+.vscode
