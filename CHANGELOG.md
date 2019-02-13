@@ -1,3 +1,9 @@
+# v1.2.1
+##  13-02-2019
+
+1. [](#improved)
+    * Limit navigation-menu to published pages.
+
 # v1.2.0
 ##  23-10-2018
 
