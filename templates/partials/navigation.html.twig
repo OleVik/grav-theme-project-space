@@ -1,6 +1,6 @@
 <nav role="navigation" class="no-print">
 	<ul class="navigation">
-	{% for page in pages.children %}
+	{% for page in pages.children if page.published %}
 		{% set current_page = (page.active or page.activeChild) ? 'nav-current' : '' %}
 		<li class="nav-{{page.slug}} {{ current_page }}" role="presentation">
 			<span>
