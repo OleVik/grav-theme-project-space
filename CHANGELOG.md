@@ -3,6 +3,8 @@
 
 1. [](#improved)
     * Limit navigation-menu to published pages.
+2. [](#bugfix)
+    * Handle categories-assignment in Admin.
 
 # v1.2.0
 ##  23-10-2018
