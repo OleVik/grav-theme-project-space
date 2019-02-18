@@ -76,6 +76,7 @@ form:
                 header.taxonomy.tag:
                   type: selectize
                   allowEmptyOption: true
+                  merge_items: true
                   label: THEME_PROJECTSPACE.ADMIN.TAGS.LABEL
                   help: THEME_PROJECTSPACE.ADMIN.TAGS.HELP
                   selectize:

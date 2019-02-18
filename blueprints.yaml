@@ -1,5 +1,5 @@
 name: Project Space
-version: 1.2.1
+version: 1.2.2
 description: Visualize projects in an organized manner, as notes on a board.
 icon: sticky-note
 author:
@@ -13,12 +13,12 @@ readme: https://github.com/OleVik/grav-theme-project-space/blob/develop/README.m
 license: MIT
 
 dependencies:
-- { name: grav, version: '~1.4' }
-- { name: quark, version: '~1.0' }
-- { name: breadcrumbs, version: '~1.5' }
-- { name: taxonomylist, version: '~1.3' }
-- { name: auto-date, version: '~1.0' }
-- { name: markdown-tasklists, version: '~1.0' }
+  - { name: grav, version: "~1.6" }
+  - { name: quark, version: "~1.0" }
+  - { name: breadcrumbs, version: "~1.5" }
+  - { name: taxonomylist, version: "~1.3" }
+  - { name: auto-date, version: "~1.0" }
+  - { name: markdown-tasklists, version: "~1.0" }
 
 form:
   validation: loose
