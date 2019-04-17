@@ -1,7 +1,6 @@
 # Project Space Theme
 
 ![Project Space](assets/readme.png)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FOleVik%2Fgrav-theme-project-space.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FOleVik%2Fgrav-theme-project-space?ref=badge_shield)
 
 ## Description
 
