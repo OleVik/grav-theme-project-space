@@ -1,6 +1,7 @@
 # Project Space Theme
 
 ![Project Space](assets/readme.png)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FOleVik%2Fgrav-theme-project-space.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FOleVik%2Fgrav-theme-project-space?ref=badge_shield)
 
 ## Description
 
@@ -149,3 +150,6 @@ Use a SCSS-compiler, like [LibSass](https://github.com/sass/libsass), eg. [node-
 Based on the [Masonry Theme](https://github.com/koca/grav-theme-masonry), which is a port of the [Masonry Theme for Ghost](https://github.com/chris-brown/Masonry-Ghost-Theme).
 
 This theme is free and open source software, distributed under the [MIT License](/LICENSE).
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FOleVik%2Fgrav-theme-project-space.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FOleVik%2Fgrav-theme-project-space?ref=badge_large)
