@@ -1,3 +1,10 @@
+# v1.2.3
+
+## 19-04-2019
+
+1. [](#bugfix)
+   - Fix version constraints
+
 # v1.2.2
 
 ## 18-02-2019
