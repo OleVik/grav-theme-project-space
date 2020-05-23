@@ -1,5 +1,5 @@
 title: Theme options
-'@extends':
+"@extends":
   type: default
   context: blueprints://pages
 
@@ -23,12 +23,16 @@ form:
               underline: true
             header.image:
               type: filepicker
-              folder: '@self'
+              folder: "@self"
               preview_images: true
               label: THEME_PROJECTSPACE.ADMIN.HEADERIMAGE.LABEL
               help: THEME_PROJECTSPACE.ADMIN.HEADERIMAGE.HELP
               accept:
-                - 'image/*'
+                - .jpg
+                - .jpeg
+                - .png
+                - .gif
+                - .svg
             header.color:
               type: select
               label: THEME_PROJECTSPACE.ADMIN.COLOR.LABEL
@@ -54,9 +58,9 @@ form:
               help: THEME_PROJECTSPACE.ADMIN.TRUNCATE.HELP
               default: 40
               validate:
-                  type: int
-                  min: 1
-                  max: 65536
+                type: int
+                min: 1
+                max: 65536
         options:
           type: tab
           fields:
