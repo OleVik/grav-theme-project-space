@@ -1,5 +1,5 @@
 name: Project Space
-version: 1.2.4
+version: 1.2.5
 description: Visualize projects in an organized manner, as notes on a board.
 icon: sticky-note
 author:
@@ -34,25 +34,17 @@ form:
         type: bool
     categories:
       type: selectize
+      id: project-space-categories-select
       allowEmptyOption: true
       merge_items: true
       label: THEME_PROJECTSPACE.ADMIN.CATEGORIES.LABEL
       help: THEME_PROJECTSPACE.ADMIN.CATEGORIES.HELP
-      selectize:
-        options:
-          - text: Idea
-            value: Idea
-          - text: Ongoing
-            value: Ongoing
-          - text: Done
-            value: Done
-          - text: Archived
-            value: Archived
       validate:
         type: commalist
     truncate:
-      type: text
+      type: number
       label: THEME_PROJECTSPACE.ADMIN.TRUNCATE.LABEL
       help: THEME_PROJECTSPACE.ADMIN.TRUNCATE.HELP
       default: 40
-      novalidate: true
+      validate:
+        step: 5

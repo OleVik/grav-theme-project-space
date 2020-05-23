@@ -1,3 +1,9 @@
+# v1.2.5
+## 23-05-2020
+
+1. [](#bugfix)
+   - Further category-fixes
+
 # v1.2.4
 ## 23-05-2020
 
