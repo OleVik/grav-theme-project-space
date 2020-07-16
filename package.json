@@ -12,6 +12,11 @@
     "pjax": "^0.2.6"
   },
   "devDependencies": {
-    "include-media": "^1.4.9"
+    "include-media": "^1.4.9",
+    "node-sass": "^4.14.1"
+  },
+  "scripts": {
+    "build": "node-sass --output-style compressed src/scss/screen.scss css/screen.css",
+    "watch": "node-sass --watch --source-map-embed --output-style compressed src/scss/screen.scss css/screen.css"
   }
 }
