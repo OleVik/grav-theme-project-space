@@ -1,6 +1,5 @@
 @import "global.scss";
 @import "../../node_modules/include-media/dist/include-media";
-$breakpoints: (extrasmall: 576px, small: 576px, medium: 768px, large: 992px, extralarge: 1200px);
 $rhythm: 1.5em;
 
 html[lang="en"] {
@@ -232,39 +231,6 @@ html[lang="en"] {
       @include media("<=extrasmall") {
         width: 100%;
         margin: 0;
-      }
-    }
-    .masonry {
-      column-fill: balance;
-      article.post {
-        display: block;
-        -webkit-column-break-inside: avoid;
-        page-break-inside: avoid;
-        break-inside: avoid;
-      }
-      @include media("<=extrasmall") {
-        -moz-column-count: 1;
-        -webkit-column-count: 1;
-        column-count: 1;
-        margin: 0.5em 0;
-      }
-      @include media(">small", "<=medium") {
-        -moz-column-count: 2;
-        -webkit-column-count: 2;
-        column-count: 2;
-        margin: 0.5em 0;
-      }
-      @include media(">medium", "<=large") {
-        -moz-column-count: 2;
-        -webkit-column-count: 2;
-        column-count: 2;
-        margin: 0.5em 0;
-      }
-      @include media(">large", "<=extralarge") {
-        -moz-column-count: 2;
-        -webkit-column-count: 2;
-        column-count: 2;
-        margin: 0.5em 0;
       }
     }
     .list {
@@ -765,7 +731,8 @@ input[data-toggle="datepicker"] + .datepicker-container {
   .post-template .site-wrapper .content {
     background: #ffffff;
   }
-  .no-print, .no-print * {
+  .no-print,
+  .no-print * {
     display: none !important;
   }
 }

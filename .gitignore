@@ -10,8 +10,8 @@ yarn-error.log*
 node_modules/
 !node_modules/pjax/pjax.min.js*
 !node_modules/animate.css/animate.min.css*
-!node_modules/multiple-select/multiple-select.css*
-!node_modules/multiple-select/multiple-select.js*
+!node_modules/multiple-select/dist/multiple-select.css*
+!node_modules/multiple-select/dist/multiple-select.js*
 !node_modules/@fengyuanchen/datepicker/dist/datepicker.min.css*
 !node_modules/@fengyuanchen/datepicker/dist/datepicker.min.js*
 .vscode

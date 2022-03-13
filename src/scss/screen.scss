@@ -1,8 +1,8 @@
 @import "global.scss";
+@import "theme.scss";
 @import "menu.scss";
 @import "prism.scss";
 @import "notes.scss";
-@import "theme.scss";
 
 article {
   display: block;
@@ -1896,80 +1896,6 @@ iframe {
 .wrapper {
   width: 95%;
   margin: 3em auto;
-}
-.masonry {
-  margin: 1.5em 0;
-  padding: 0;
-  -moz-column-gap: 1.5em;
-  -webkit-column-gap: 1.5em;
-  //Instead of the line below you could use @include column-gap($width)
-  column-gap: 1.5em;
-  font-size: 0.85em;
-  .post {
-    display: inline-block;
-    background: $white;
-    padding: 1.5em;
-    margin: 0 0 1.5em;
-    width: 100%;
-    //Instead of the line below you could use @include box-sizing($bs)
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
-    box-shadow: 0 1px 1px 0 $black_18;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    &:hover {
-      //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
-      box-shadow: 2px 2px 4px 0 $color_celeste_approx;
-
-      .post-image img {
-        @extend %extend_10;
-      }
-    }
-    .post-image {
-      display: block;
-      margin: 0;
-      padding: 0;
-      position: relative;
-      margin: -1.5em -1.5em 12px;
-      overflow: hidden;
-
-      img {
-        transition: all ease-out 1s;
-        opacity: 1;
-        display: block;
-        width: 100%;
-        height: auto;
-        margin: 0;
-        padding: 0;
-      }
-    }
-    &:focus .post-image img {
-      @extend %extend_10;
-    }
-  }
-  .post-excerpt a {
-    color: $color_rose_approx;
-  }
-}
-@media only screen and(min-width: 400px) {
-  .masonry {
-    -moz-column-count: 2;
-    -webkit-column-count: 2;
-    //Instead of the line below you could use @include column-count($count)
-    column-count: 2;
-  }
-}
-@media only screen and(min-width: 700px) {
-  .masonry {
-    -moz-column-count: 3;
-    -webkit-column-count: 3;
-    //Instead of the line below you could use @include column-count($count)
-    column-count: 3;
-  }
 }
 @media only screen and(min-width: 1280px) {
   .wrapper {

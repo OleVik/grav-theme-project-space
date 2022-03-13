@@ -15,11 +15,11 @@
     </header>
     <section class="post-excerpt" itemprop="description">
     {% if truncate is defined and truncate is not sameas(true) %}
-        <p>{{ post.content|truncate_words(truncate) }}</p>
+        <p>{{ post.content|raw|truncate_words(truncate) }}</p>
     {% elseif truncate is defined and truncate >= 1 %}
-        <p>{{ post.content|truncate_words(20) }}</p>
+        <p>{{ post.content|raw|truncate_words(20) }}</p>
     {% else %}
-        <p>{{ post.content }}</p>
+        <p>{{ post.content|raw }}</p>
     {% endif %}
     </section>
     <footer class="post-meta">

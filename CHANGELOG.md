@@ -1,3 +1,13 @@
+# v1.2.7
+## 13-03-2022
+
+1. [](#bugfix)
+   - Quirks-mode for multi-column layout in Firefox
+2. [](#improved)
+   - Formatting
+3. [](#new)
+   - Compatibility with Grav v1.7
+
 # v1.2.6
 ## 16-07-2020
 
