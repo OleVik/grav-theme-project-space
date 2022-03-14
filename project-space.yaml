@@ -5,3 +5,28 @@ categories:
   - Done
   - Archived
 truncate: 40
+colors:
+  - name: White
+    value: "rgb(250, 250, 250)"
+  - name: Red
+    value: "rgb(255, 138, 128)"
+  - name: Orange
+    value: "rgb(255, 209, 128)"
+  - name: Yellow
+    value: "rgb(255, 255, 141)"
+  - name: Green
+    value: "rgb(204, 255, 144)"
+  - name: Teal
+    value: "rgb(167, 255, 235)"
+  - name: Blue
+    value: "rgb(128, 216, 255)"
+  - name: DarkBlue
+    value: "rgb(130, 177, 255)"
+  - name: Purple
+    value: "rgb(179, 136, 255)"
+  - name: Pink
+    value: "rgb(248, 187, 208)"
+  - name: Brown
+    value: "rgb(215, 204, 200)"
+  - name: Gray
+    value: "rgb(207, 216, 220)"

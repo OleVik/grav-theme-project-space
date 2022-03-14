@@ -1,14 +1,9 @@
 <?php
+
 namespace Grav\Theme;
 
 use Grav\Common\Grav;
 use Grav\Common\Theme;
-use Grav\Common\Uri;
-use Grav\Common\Page\Page;
-use Grav\Common\Theme\Event;
-
-require __DIR__ . '/vendor/autoload.php';
-require Grav::instance()['locator']->findResource('user://plugins/taxonomylist/classes/taxonomylist.php', true);
 use Grav\Plugin\Taxonomylist;
 
 /**
@@ -34,26 +29,6 @@ class ProjectSpace extends Theme
     ];
 
     /**
-     * Available colors
-     *
-     * @var array
-     */
-    public $colors = [
-        'white' => 'White',
-        'red' => 'Red',
-        'orange' => 'Orange',
-        'yellow' => 'Yellow',
-        'green' => 'Green',
-        'teal' => 'Teal',
-        'blue' => 'Blue',
-        'dark-blue' => 'Dark Blue',
-        'purple' => 'Purple',
-        'pink' => 'Pink',
-        'brown' => 'Brown',
-        'gray' => 'Gray'
-    ];
-
-    /**
      * Initialize plugin and subsequent events
      * 
      * @return array
@@ -62,8 +37,6 @@ class ProjectSpace extends Theme
     {
         return [
             'onThemeInitialized' => ['onThemeInitialized', 0],
-            'onTwigSiteVariables' => ['addTwigVars', 0],
-            'onTwigPageVariables' => ['addTwigVars', 0],
             'onTwigExtensions' => ['onTwigExtensions', 0]
         ];
     }
@@ -170,16 +143,6 @@ class ProjectSpace extends Theme
     }
 
     /**
-     * Add Twig variables
-     * 
-     * @return array Colors
-     */
-    public function addTwigVars()
-    {
-        $this->grav['twig']->twig_vars['project_colors'] = $this->colors;
-    }
-
-    /**
      * Add Twig Extension
      *
      * @return void
@@ -207,5 +170,15 @@ class ProjectSpace extends Theme
     public function inArrayAny($needles, $haystack)
     {
         return !!array_intersect($needles, $haystack);
+    }
+
+    /**
+     * Composer autoload.
+     *
+     * @return \Composer\Autoload\ClassLoader
+     */
+    public function autoload(): \Composer\Autoload\ClassLoader
+    {
+        return require __DIR__ . '/vendor/autoload.php';
     }
 }

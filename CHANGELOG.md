@@ -1,3 +1,12 @@
+# v1.3.0-beta.1
+## 14-03-2022
+
+1. [](#new)
+   - Customizable color scheme
+2. [](#improved)
+   - Code-quality
+   - Blueprints
+
 # v1.2.8
 ## 14-03-2022
 

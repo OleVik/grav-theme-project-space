@@ -128,8 +128,8 @@
     {% endif %}
     <div class="filter-color-container">
       <select id="filter-color" name="color[]" class="filter" multiple="multiple">
-        {% for key, name in project_colors %}
-          <option value="{{ key }}" {% if in_array_any([key], params.color) %}selected{% endif %}>{{ name }}</option>
+        {% for key in config.theme.colors|map(p => "#{p.name}") %}
+          <option value="{{ key }}" {% if in_array_any([key], params.color) %}selected{% endif %}>{{ key }}</option>
         {% endfor %}
       </select>
     </div>

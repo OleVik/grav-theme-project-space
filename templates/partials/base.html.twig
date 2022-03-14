@@ -34,6 +34,16 @@
             {% do assets.addCss('theme://node_modules/@fengyuanchen/datepicker/dist/datepicker.min.css', 101) %}
             {% do assets.addCss('theme://node_modules/animate.css/animate.min.css', 101) %}
             {% do assets.addCss('theme://node_modules/paper-css/paper.min.css', {'priority': 101, 'loading': 'async', 'media': 'only print'}) %}
+            <style>
+            {% for color in config.theme.colors %}
+            .filter-color-container input[type="checkbox"][value="{{ color.name }}"] + span:after {
+                color: {{ color.value }} !important;
+            }
+            article.post.{{ color.name }} {
+                background: {{ color.value }} !important;
+            }
+            {% endfor %}
+            </style>
             {{ assets.css()|raw }}
         {% endblock %}
     {% endblock head %}

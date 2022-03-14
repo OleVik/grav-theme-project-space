@@ -631,42 +631,6 @@ input[data-toggle="datepicker"] + .datepicker-container {
     display: inline-block;
     margin-top: -5px;
   }
-  input[type="checkbox"][value="white"] + span:after {
-    color: rgb(250, 250, 250) !important;
-  }
-  input[type="checkbox"][value="red"] + span:after {
-    color: rgb(255, 138, 128) !important;
-  }
-  input[type="checkbox"][value="orange"] + span:after {
-    color: rgb(255, 209, 128) !important;
-  }
-  input[type="checkbox"][value="yellow"] + span:after {
-    color: rgb(255, 255, 141) !important;
-  }
-  input[type="checkbox"][value="green"] + span:after {
-    color: rgb(204, 255, 144) !important;
-  }
-  input[type="checkbox"][value="teal"] + span:after {
-    color: rgb(167, 255, 235) !important;
-  }
-  input[type="checkbox"][value="blue"] + span:after {
-    color: rgb(128, 216, 255) !important;
-  }
-  input[type="checkbox"][value="dark-blue"] + span:after {
-    color: rgb(130, 177, 255) !important;
-  }
-  input[type="checkbox"][value="purple"] + span:after {
-    color: rgb(179, 136, 255) !important;
-  }
-  input[type="checkbox"][value="pink"] + span:after {
-    color: rgb(248, 187, 208) !important;
-  }
-  input[type="checkbox"][value="brown"] + span:after {
-    color: rgb(215, 204, 200) !important;
-  }
-  input[type="checkbox"][value="gray"] + span:after {
-    color: rgb(207, 216, 220) !important;
-  }
 }
 
 /* Simple grid */

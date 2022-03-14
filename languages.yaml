@@ -3,10 +3,10 @@ en:
     ADMIN:
       CATEGORIES:
         LABEL: Categories
-        HELP: Sets the available categories
+        HELP: Available categories
       TRUNCATE:
         LABEL: Truncate words
-        HELP: Limits the amount of words in each note, to an integer or boolean state for default (40)
+        HELP: Limits the amount of words in each note, to an integer or boolean state
       SUBTITLE: Subtitle
       STYLE: Style
       HEADERIMAGE:
@@ -19,6 +19,8 @@ en:
         LABEL: Tags
         HELP: Applies tags to the project
       COLOR:
+        NAME: Color
+        NAMING: Name should not contain whitespace.
         LABEL: Background color
         HELP: Sets the background color for the note
         OPTIONS:

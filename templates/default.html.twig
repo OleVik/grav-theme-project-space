@@ -112,14 +112,14 @@
             </section>
             {% elseif display == 'color' %}
             <section class="list">
-                {% for key, name in project_colors %}
+                {% for color in config.theme.colors %}
                     {% set posts_color = [] %}
-                    {% for post in posts[pageOffset:limit] if post.header.color == key %}
+                    {% for post in posts[pageOffset:limit] if post.header.color == color.name %}
                         {% set posts_color = posts_color|merge([post]) %}
                     {% endfor %}
-                    {% if posts_color|length > 0%}
+                    {% if posts_color|length > 0 %}
                         <h2>
-                            <a href="{{ page.url }}/color:{{ key }}">{{ name }}</a>
+                            <a href="{{ page.url }}/color:{{ color.name }}">{{ color.name }}</a>
                         </h2>
                         {% for post in posts_color %}
                             {% include 'partials/article.html.twig' with {'truncate': truncate} %}
