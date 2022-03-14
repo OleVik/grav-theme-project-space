@@ -1,3 +1,9 @@
+# v1.2.8
+## 14-03-2022
+
+1. [](#improved)
+   - Translatable placeholders
+
 # v1.2.7
 ## 13-03-2022
 

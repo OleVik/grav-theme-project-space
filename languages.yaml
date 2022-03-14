@@ -78,9 +78,12 @@ en:
         TAG: Tag
       DATE:
         MENU: Date range
+      PLACEHOLDERS:
+        CATEGORY: Category,Category2,Category3
+        TAG: Tag1,Tag2,Tag3
+        COLOR: Color1,Color2,Color3
     EMPTY:
       TITLE: No projects found...
       CONTENT: Try changing the settings in the tools-menu, or visit another page
     ERROR:
       404: Page Not Found
-
