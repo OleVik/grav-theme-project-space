@@ -1,63 +1,17 @@
-select[name="data[header][color]"] + div.selectize-control.single .option:before,
+select[name="data[header][color]"]
+  + div.selectize-control.single
+  .option:before,
 select[name="data[header][color]"] + div.selectize-control.single .item:before {
-  content: '';
+  content: "";
   display: block;
-  clear:both;
+  clear: both;
 }
 select[name="data[header][color]"] + div.selectize-control.single .option:after,
 select[name="data[header][color]"] + div.selectize-control.single .item:after {
-  content: '■'; 
+  content: "■";
   margin-left: 0.5em;
   font-size: 25px;
   vertical-align: middle;
   display: inline-block;
   margin-top: -5px;
-}
-select[name="data[header][color]"] + div.selectize-control.single .option[data-value="white"]:after,
-select[name="data[header][color]"] + div.selectize-control.single .item[data-value="white"]:after {
-  color: rgb(250, 250, 250) !important;
-}
-select[name="data[header][color]"] + div.selectize-control.single .option[data-value="red"]:after,
-select[name="data[header][color]"] + div.selectize-control.single .item[data-value="red"]:after {
-  color: rgb(255, 138, 128) !important;
-}
-select[name="data[header][color]"] + div.selectize-control.single .option[data-value="orange"]:after,
-select[name="data[header][color]"] + div.selectize-control.single .item[data-value="orange"]:after {
-  color: rgb(255, 209, 128) !important;
-}
-select[name="data[header][color]"] + div.selectize-control.single .option[data-value="yellow"]:after,
-select[name="data[header][color]"] + div.selectize-control.single .item[data-value="yellow"]:after {
-  color: rgb(255, 255, 141) !important;
-}
-select[name="data[header][color]"] + div.selectize-control.single .option[data-value="green"]:after,
-select[name="data[header][color]"] + div.selectize-control.single .item[data-value="green"]:after {
-  color: rgb(204, 255, 144) !important;
-}
-select[name="data[header][color]"] + div.selectize-control.single .option[data-value="teal"]:after,
-select[name="data[header][color]"] + div.selectize-control.single .item[data-value="teal"]:after {
-  color: rgb(167, 255, 235) !important;
-}
-select[name="data[header][color]"] + div.selectize-control.single .option[data-value="blue"]:after,
-select[name="data[header][color]"] + div.selectize-control.single .item[data-value="blue"]:after {
-  color: rgb(128, 216, 255) !important;
-}
-select[name="data[header][color]"] + div.selectize-control.single .option[data-value="dark-blue"]:after,
-select[name="data[header][color]"] + div.selectize-control.single .item[data-value="dark-blue"]:after {
-  color: rgb(130, 177, 255) !important;
-}
-select[name="data[header][color]"] + div.selectize-control.single .option[data-value="purple"]:after,
-select[name="data[header][color]"] + div.selectize-control.single .item[data-value="purple"]:after {
-  color: rgb(179, 136, 255) !important;
-}
-select[name="data[header][color]"] + div.selectize-control.single .option[data-value="pink"]:after,
-select[name="data[header][color]"] + div.selectize-control.single .item[data-value="pink"]:after {
-  color: rgb(248, 187, 208) !important;
-}
-select[name="data[header][color]"] + div.selectize-control.single .option[data-value="brown"]:after,
-select[name="data[header][color]"] + div.selectize-control.single .item[data-value="brown"]:after {
-  color: rgb(215, 204, 200) !important;
-}
-select[name="data[header][color]"] + div.selectize-control.single .option[data-value="gray"]:after,
-select[name="data[header][color]"] + div.selectize-control.single .item[data-value="gray"]:after {
-  color: rgb(207, 216, 220) !important;
 }

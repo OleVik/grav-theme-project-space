@@ -74,6 +74,21 @@ class ProjectSpace extends Theme
     }
 
     /**
+     * Get list of allowed categories from site.yaml
+     *
+     * @return array
+     */
+    public static function colors()
+    {
+        $options = Grav::instance()['config']->get('themes.project-space.colors');
+        $colors = array();
+        foreach ($options as $color) {
+            $colors[$color['name']] = $color['name'];
+        }
+        return $colors;
+    }
+
+    /**
      * Register events and route with Grav
      * 
      * @return void
@@ -98,17 +113,28 @@ class ProjectSpace extends Theme
 
     /**
      * Push styles to Admin-plugin via Assets Manager
-     * 
+     *
      * @return void
      */
     public function onAdminPageInitialized()
     {
         $this->grav['assets']->addCss('theme://src/admin.css', 1);
+        $colors = '';
+        foreach (Grav::instance()['config']->get('themes.project-space.colors') as $color) {
+            if (!array_key_exists('name', $color) || !array_key_exists('value', $color)) {
+                continue;
+            }
+            $colors .= 'select[name="data[header][color]"] + div.selectize-control.single .option[data-value="' . $color['name'] . '"]:after,';
+            $colors .= 'select[name="data[header][color]"] + div.selectize-control.single .item[data-value="' . $color['name'] . '"]:after {';
+            $colors .= 'color:' . $color['value'] . '!important;';
+            $colors .= '}';
+        }
+        $this->grav['assets']->addInlineCss($colors);
     }
 
     /**
      * Logic for handling tools-menu
-     * 
+     *
      * @return void
      */
     public function onPageInitialized()

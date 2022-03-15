@@ -1,3 +1,9 @@
+# v1.3.0-beta.2
+## 15-03-2022
+
+1. [](#bugfix)
+   - Customizable color scheme
+
 # v1.3.0-beta.1
 ## 14-03-2022
 

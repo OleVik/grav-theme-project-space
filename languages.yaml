@@ -23,19 +23,6 @@ en:
         NAMING: Name should not contain whitespace.
         LABEL: Background color
         HELP: Sets the background color for the note
-        OPTIONS:
-          WHITE: White
-          RED: Red
-          ORANGE: Orange
-          YELLOW: Yellow
-          GREEN: Green
-          TEAL: Teal
-          BLUE: Blue
-          DARKBLUE: Dark Blue
-          PURPLE: Purple
-          PINK: Pink
-          BROWN: Brown
-          GRAY: Gray
     HOME: Home
     MENU:
       TITLE: Menu
@@ -84,6 +71,13 @@ en:
         CATEGORY: Category,Category2,Category3
         TAG: Tag1,Tag2,Tag3
         COLOR: Color1,Color2,Color3
+      FORMATTERS:
+        SELECTALL: "[Select All]"
+        ALLSELECTED: "All selected"
+        COUNTSELECTED:
+          OF: of
+          SELECTED: selected
+        NOMATCHESFOUND: No matches found
     EMPTY:
       TITLE: No projects found...
       CONTENT: Try changing the settings in the tools-menu, or visit another page

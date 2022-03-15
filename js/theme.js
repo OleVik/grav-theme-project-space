@@ -30,19 +30,48 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   (function ($, undefined) {
     "use strict";
+    $.fn.multipleSelect.locales["en-US"] = {
+      formatSelectAll: function formatSelectAll() {
+        return THEME_PROJECTSPACE_TOOLS_FORMATTERS_SELECTALL;
+      },
+      formatAllSelected: function formatAllSelected() {
+        return THEME_PROJECTSPACE_TOOLS_FORMATTERS_ALLSELECTED;
+      },
+      formatCountSelected: function formatCountSelected(count, total) {
+        return (
+          count +
+          " " +
+          THEME_PROJECTSPACE_TOOLS_FORMATTERS_COUNTSELECTED_OF +
+          " " +
+          total +
+          " " +
+          THEME_PROJECTSPACE_TOOLS_FORMATTERS_COUNTSELECTED_SELECTED
+        );
+      },
+      formatNoMatchesFound: function formatNoMatchesFound() {
+        return THEME_PROJECTSPACE_TOOLS_FORMATTERS_NOMATCHESFOUND;
+      },
+    };
+    $.extend(
+      $.fn.multipleSelect.defaults,
+      $.fn.multipleSelect.locales["en-US"]
+    );
     $("#filter-category").multipleSelect({
       filter: true,
       width: "200px",
+      locale: "en-US",
       placeholder: THEME_PROJECTSPACE_TOOLS_PLACEHOLDERS_CATEGORY,
     });
     $("#filter-tag").multipleSelect({
       filter: true,
       width: "200px",
+      locale: "en-US",
       placeholder: THEME_PROJECTSPACE_TOOLS_PLACEHOLDERS_TAG,
     });
     $("#filter-color").multipleSelect({
       filter: true,
       width: "200px",
+      locale: "en-US",
       placeholder: THEME_PROJECTSPACE_TOOLS_PLACEHOLDERS_COLOR,
     });
     $('input[name="start"]').datepicker({
