@@ -1,5 +1,6 @@
 <?php
-namespace Grav\Theme;
+
+namespace Grav\Theme\ProjectSpace;
 
 class InAnyArrayTwigExtension extends \Twig_Extension
 {

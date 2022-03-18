@@ -1,5 +1,6 @@
 <?php
-namespace Grav\Theme;
+
+namespace Grav\Theme\ProjectSpace;
 
 use DOMText;
 use DOMDocument;
@@ -11,7 +12,7 @@ use DOMLettersIterator;
  * @author Alex Wilson <ajw@bluetel.co.uk>
  * @license MIT
  */
-class TruncateExtension extends \Twig_Extension
+class TruncateTwigExtension extends \Twig_Extension
 {
     public function getName()
     {
@@ -93,7 +94,6 @@ class TruncateExtension extends \Twig_Extension
 
                 break;
             }
-
         }
 
         return $dom->saveHTML();
@@ -213,7 +213,6 @@ class TruncateExtension extends \Twig_Extension
             } else {
                 $domNode->parentNode->parentNode->appendChild($textNode);
             }
-
         } else {
             // Append to current node
             $domNode->nodeValue = rtrim($domNode->nodeValue) . $ellipsis;

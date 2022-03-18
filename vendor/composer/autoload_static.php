@@ -6,14 +6,35 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit5731f5e90635a85f1db395d7530915e5
 {
+    public static $prefixLengthsPsr4 = array (
+        'G' => 
+        array (
+            'Grav\\Theme\\ProjectSpace\\' => 24,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'Grav\\Theme\\ProjectSpace\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/twig',
+        ),
+    );
+
     public static $fallbackDirsPsr4 = array (
         0 => __DIR__ . '/..' . '/antoligy/dom-string-iterators/src',
+    );
+
+    public static $classMap = array (
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->prefixLengthsPsr4 = ComposerStaticInit5731f5e90635a85f1db395d7530915e5::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit5731f5e90635a85f1db395d7530915e5::$prefixDirsPsr4;
             $loader->fallbackDirsPsr4 = ComposerStaticInit5731f5e90635a85f1db395d7530915e5::$fallbackDirsPsr4;
+            $loader->classMap = ComposerStaticInit5731f5e90635a85f1db395d7530915e5::$classMap;
 
         }, null, ClassLoader::class);
     }

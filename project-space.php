@@ -5,6 +5,9 @@ namespace Grav\Theme;
 use Grav\Common\Grav;
 use Grav\Common\Theme;
 use Grav\Plugin\Taxonomylist;
+use Grav\Theme\ProjectSpace\InAnyArrayTwigExtension;
+use Grav\Theme\ProjectSpace\TruncateTwigExtension;
+use Grav\Theme\ProjectSpace\UrlDecoderTwigExtension;
 
 /**
  * Project Space Class
@@ -175,27 +178,9 @@ class ProjectSpace extends Theme
      */
     public function onTwigExtensions()
     {
-        include_once __DIR__ . '/twig/UrlDecoderTwigExtension.php';
         $this->grav['twig']->twig->addExtension(new UrlDecoderTwigExtension());
-        include_once __DIR__ . '/twig/InAnyArrayTwigExtension.php';
+        $this->grav['twig']->twig->addExtension(new TruncateTwigExtension());
         $this->grav['twig']->twig->addExtension(new InAnyArrayTwigExtension());
-        include_once __DIR__ . '/twig/TruncateExtension.php';
-        $this->grav['twig']->twig->addExtension(new TruncateExtension());
-    }
-
-    /**
-     * Check if any needles exist in haystack
-     *
-     * @param array $needles  Values to search for
-     * @param array $haystack Values to match against
-     * 
-     * @return boolean
-     * 
-     * @see https://stackoverflow.com/a/11040612/603387
-     */
-    public function inArrayAny($needles, $haystack)
-    {
-        return !!array_intersect($needles, $haystack);
     }
 
     /**

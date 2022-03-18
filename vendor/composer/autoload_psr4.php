@@ -6,5 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Grav\\Theme\\ProjectSpace\\' => array($baseDir . '/twig'),
     '' => array($vendorDir . '/antoligy/dom-string-iterators/src'),
 );

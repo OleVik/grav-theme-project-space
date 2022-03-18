@@ -1,6 +1,21 @@
 {
-    "minimum-stability": "dev",
-    "require": {
-        "antoligy/dom-string-iterators": "^1.0"
+  "name": "olevik/grav-plugin-scholar",
+  "description": "Visualize projects in an organized manner, as notes on a board, with Grav.",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ole Vik",
+      "email": "git@olevik.net"
     }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "antoligy/dom-string-iterators": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Grav\\Theme\\ProjectSpace\\": "twig/"
+    }
+  }
 }

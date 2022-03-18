@@ -1,5 +1,6 @@
 <?php
-namespace Grav\Theme;
+
+namespace Grav\Theme\ProjectSpace;
 
 class UrlDecoderTwigExtension extends \Twig_Extension
 {

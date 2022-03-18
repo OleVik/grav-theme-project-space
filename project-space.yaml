@@ -7,26 +7,26 @@ categories:
 truncate: 40
 colors:
   - name: White
-    value: "rgb(250, 250, 250)"
+    value: "rgba(250, 250, 250, 1.00)"
   - name: Red
-    value: "rgb(255, 138, 128)"
+    value: "rgba(255, 138, 128, 1.00)"
   - name: Orange
-    value: "rgb(255, 209, 128)"
+    value: "rgba(255, 209, 128, 1.00)"
   - name: Yellow
-    value: "rgb(255, 255, 141)"
+    value: "rgba(255, 255, 141, 1.00)"
   - name: Green
-    value: "rgb(204, 255, 144)"
+    value: "rgba(204, 255, 144, 1.00)"
   - name: Teal
-    value: "rgb(167, 255, 235)"
+    value: "rgba(167, 255, 235, 1.00)"
   - name: Blue
-    value: "rgb(128, 216, 255)"
+    value: "rgba(128, 216, 255, 1.00)"
   - name: DarkBlue
-    value: "rgb(130, 177, 255)"
+    value: "rgba(130, 177, 255, 1.00)"
   - name: Purple
-    value: "rgb(179, 136, 255)"
+    value: "rgba(179, 136, 255, 1.00)"
   - name: Pink
-    value: "rgb(248, 187, 208)"
+    value: "rgba(248, 187, 208, 1.00)"
   - name: Brown
-    value: "rgb(215, 204, 200)"
+    value: "rgba(215, 204, 200, 1.00)"
   - name: Gray
-    value: "rgb(207, 216, 220)"
+    value: "rgba(207, 216, 220, 1.00)"

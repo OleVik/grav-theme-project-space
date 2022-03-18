@@ -1,3 +1,14 @@
+# v2.0.0-beta.1
+## 19-03-2022
+
+1. [](#new)
+   - Autoload Twig extensions
+2. [](#improved)
+   - Properly named TruncateTwigExtension
+   - Composer.json details
+3. [](#bugfix)
+   - Use RGBA for customizable color scheme, Admin does not support RGB
+
 # v1.3.0-beta.2
 ## 15-03-2022
 
