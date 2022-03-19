@@ -16,8 +16,16 @@ class InAnyArrayTwigExtension extends \Twig_Extension
         ];
     }
 
-    public function inArrayAny($needles, $haystack)
+    /**
+     * Look for needles in haystacks
+     *
+     * @param array $needles Array of items to look for
+     * @param array $haystack Arrays of items to look in
+     *
+     * @return bool True if any items match, false otherwise
+     */
+    public function inArrayAny(array $needles, array $haystack)
     {
-        return !!array_intersect($needles, $haystack);
+        return (bool) array_intersect($needles, $haystack);
     }
 }

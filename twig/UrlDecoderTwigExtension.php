@@ -16,7 +16,14 @@ class UrlDecoderTwigExtension extends \Twig_Extension
         ];
     }
 
-    public function UrlDecoderFilter($url)
+    /**
+     * Decode an URL-encoded string
+     *
+     * @param string $url String to be decoded
+     *
+     * @return string
+     */
+    public function UrlDecoderFilter(string $url)
     {
         return urldecode($url);
     }

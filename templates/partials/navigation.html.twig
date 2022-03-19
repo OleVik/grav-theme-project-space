@@ -2,9 +2,9 @@
 	<ul class="navigation">
 	{% for page in pages.children if page.published %}
 		{% set current_page = (page.active or page.activeChild) ? 'nav-current' : '' %}
-		<li class="nav-{{page.slug}} {{ current_page }}" role="presentation">
+		<li class="nav-{{ page.slug }} {{ current_page }}" role="presentation">
 			<span>
-				<a href="{{ page.route }}">{{ page.menu }}</a>
+				<a href="{{ page.url }}">{{ page.menu }}</a>
 			</span>
 			<span></span>
 		</li>

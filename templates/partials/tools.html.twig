@@ -30,13 +30,7 @@
     'tag': tag|default([])
 } %}
 
-{% if system.home.alias == '/' ~ page.slug %}
-  {% set action = base_url_absolute ~ '/' ~ page.slug %}
-{% else %}
-  {% set action = base_url_absolute ~ page.url %}
-{% endif %}
-
-<form id="tools-handler" class="js-Pjax no-print" action="{{ action }}" method="GET">
+<form id="tools-handler" class="js-Pjax no-print" action="{{ page.url }}" method="GET">
   <nav role="navigation">
     <h4 class="nav-subtitle">{{ 'THEME_PROJECTSPACE.TOOLS.DISPLAY.MENU'|t }}</h4>
     <div class="tools-container">

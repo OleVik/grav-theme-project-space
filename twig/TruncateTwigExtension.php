@@ -9,8 +9,10 @@ use DOMLettersIterator;
 
 /**
  * TruncateExtension
- * @author Alex Wilson <ajw@bluetel.co.uk>
- * @license MIT
+ *
+ * @author  Alex Wilson <ajw@bluetel.co.uk>
+ * @license http://www.opensource.org/licenses/mit-license.html MIT License
+ * @link    https://github.com/bluetel/twig-truncate-extension
  */
 class TruncateTwigExtension extends \Twig_Extension
 {
@@ -20,7 +22,9 @@ class TruncateTwigExtension extends \Twig_Extension
     }
 
     /**
-     * @return array Returns the list of filters supplied by this extension.
+     * Undocumented Register filters
+     *
+     * @return array List of filters supplied by this extension.
      */
     public function getFilters()
     {

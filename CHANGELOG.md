@@ -1,5 +1,12 @@
-# v2.0.0-beta.1
+# v2.0.0-beta.2
 ## 19-03-2022
+
+1. [](#improved)
+   - Use Asset Manager for customizable color scheme
+   - Use `page.url` for navigation and redirects
+
+# v2.0.0-beta.1
+## 18-03-2022
 
 1. [](#new)
    - Autoload Twig extensions

@@ -10,7 +10,15 @@ use Grav\Theme\ProjectSpace\TruncateTwigExtension;
 use Grav\Theme\ProjectSpace\UrlDecoderTwigExtension;
 
 /**
- * Project Space Class
+ * Project Space Theme
+ *
+ * Class ProjectSpace
+ *
+ * @category Extensions
+ * @package  Grav\Theme
+ * @author   Ole Vik <git@olevik.net>
+ * @license  http://www.opensource.org/licenses/mit-license.html MIT License
+ * @link     https://github.com/OleVik/grav-theme-project-space
  */
 class ProjectSpace extends Theme
 {
@@ -33,7 +41,7 @@ class ProjectSpace extends Theme
 
     /**
      * Initialize plugin and subsequent events
-     * 
+     *
      * @return array
      */
     public static function getSubscribedEvents()
@@ -93,7 +101,7 @@ class ProjectSpace extends Theme
 
     /**
      * Register events and route with Grav
-     * 
+     *
      * @return void
      */
     public function onThemeInitialized()
