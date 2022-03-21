@@ -1,3 +1,9 @@
+# v2.0.0-beta.3
+## 22-03-2022
+
+1. [](#bugfix)
+   - Simplify location-handling
+
 # v2.0.0-beta.2
 ## 19-03-2022
 
