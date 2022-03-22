@@ -110,19 +110,19 @@
     <h4 class="nav-subtitle">{{ 'THEME_PROJECTSPACE.TOOLS.FILTER.MENU'|t }}</h4>
     {% if taxonomylist %}
     <select id="filter-category" name="category[]" class="filter" multiple="multiple">
-      {% for category in theme.categories %}
+      {% for category in theme.categories|default([]) %}
         <option value="{{ category }}" {% if in_array_any([category], params.category) %}selected{% endif %}>{{ category }}</option>
       {% endfor %}
     </select>
     <select id="filter-tag" name="tag[]" class="filter" multiple="multiple">
-      {% for tag, count in taxonomylist.get.tag %}
+      {% for tag, count in taxonomylist.get.tag|default([]) %}
         <option value="{{ tag }}" {% if in_array_any([tag], params.tag) %}selected{% endif %}>{{ tag }}</option>
       {% endfor %}
     </select>
     {% endif %}
     <div class="filter-color-container">
       <select id="filter-color" name="color[]" class="filter" multiple="multiple">
-        {% for key in config.theme.colors|map(p => "#{p.name}") %}
+        {% for key in config.theme.colors|default([])|map(p => "#{p.name}") %}
           <option value="{{ key }}" {% if in_array_any([key], params.color) %}selected{% endif %}>{{ key }}</option>
         {% endfor %}
       </select>

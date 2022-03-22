@@ -1,3 +1,9 @@
+# v2.0.0
+## 23-03-2022
+
+1. [](#bugfix)
+   - Fall back to empty arrays in tool-menu
+
 # v2.0.0-beta.3
 ## 22-03-2022
 
