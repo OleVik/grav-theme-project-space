@@ -1,3 +1,9 @@
+# v2.0.1
+## 24-03-2022
+
+1. [](#bugfix)
+   - Fix language-specific CSS
+
 # v2.0.0
 ## 23-03-2022
 
