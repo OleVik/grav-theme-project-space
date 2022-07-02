@@ -32,6 +32,8 @@ en:
         MORE:
           AUTHOR: More posts by this author
           SPEC_AUTHOR: More posts by
+        NEXT: Read This Next data-prefix="{{ 'THEME_PROJECTSPACE.BLOG.POST.SIMILAR'|t }}"
+        SIMILAR: You might enjoy
         SHARE: Share this post
       PAGINATION:
         OLDER: Older posts
