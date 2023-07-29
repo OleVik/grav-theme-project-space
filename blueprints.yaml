@@ -1,12 +1,12 @@
 name: Project Space
-version: 2.0.3
+version: 2.0.4
 description: Visualize projects in an organized manner, as notes on a board.
 icon: sticky-note
 author:
   name: Ole Vik
   email: git@olevik.net
 homepage: https://github.com/OleVik/grav-theme-project-space
-demo: https://olevik.me/staging/grav-skeleton-project-space
+demo: https://olevik.net/staging/grav-skeleton-project-space
 keywords: grav, theme, project, projects, note, notes, visualize
 bugs: https://github.com/OleVik/grav-theme-project-space/issues
 readme: https://github.com/OleVik/grav-theme-project-space/blob/master/README.md
