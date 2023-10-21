@@ -61,8 +61,10 @@ class ProjectSpace extends Theme
     {
         $options = Grav::instance()['config']->get('themes.project-space.categories');
         $categories = array();
-        foreach ($options as $category) {
-            $categories[$category] = $category;
+        if (!empty($options)) {
+            foreach ($options as $category) {
+                $categories[$category] = $category;
+            }
         }
         return $categories;
     }
