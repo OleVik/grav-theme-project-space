@@ -1,3 +1,9 @@
+# v2.0.5
+## 22-10-2023
+
+1. [](#bugfix)
+   - Prevent error in Admin when categories array is empty in blueprint ([#23](https://github.com/OleVik/grav-theme-project-space/pull/23))
+
 # v2.0.4
 ## 29-07-2023
 
